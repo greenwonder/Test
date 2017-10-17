@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>H5生态和React</title>
+<meta name="author" content="(wei wu)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/css/theme/moon.css" id="theme"/>
+
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<meta name="description" content="H5生态">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">H5生态和React</h1><h2 class="author">wei wu</h2><p class="date">Created: 2017-09-01 Fri 16:53</p>
+</section>
+<section id="table-of-contents">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#/slide-org0726e42">HTML5？</a></li>
+<li><a href="#/slide-org5a77f37">如何选择框架</a></li>
+<li><a href="#/slide-org58044ee">CSS 框架</a></li>
+<li><a href="#/slide-orgf782a5d">JS Web 框架</a></li>
+<li><a href="#/slide-orge696ccf">选择react的理由</a></li>
+<li><a href="#/slide-org2fec5e3">js 生态</a></li>
+<li><a href="#/slide-orgd8e7c89">构建工具</a></li>
+<li><a href="#/slide-org3f63961">React</a></li>
+</ul>
+</div>
+</div>
+</section>
+
+<section>
+<section id="slide-org0726e42">
+<h2 id="org0726e42">HTML5？</h2>
+<ul>
+<li>HTML5 = 标记语言 + JS</li>
+<li>标记语言 = HTML + CSS</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org5a77f37">
+<h2 id="org5a77f37">如何选择框架</h2>
+<ul>
+<li>开发者</li>
+<li>社区</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org58044ee">
+<h2 id="org58044ee">CSS 框架</h2>
+<ul>
+<li>css3</li>
+<li>less</li>
+<li>sass</li>
+<li>stylus</li>
+<li>bootstrap</li>
+<li>material-ui</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orgf782a5d">
+<h2 id="orgf782a5d">JS Web 框架</h2>
+<ul>
+<li>angular</li>
+<li>react</li>
+<li>vue</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orge696ccf">
+<h2 id="orge696ccf">选择react的理由</h2>
+
+</section>
+</section>
+<section>
+<section id="slide-org2fec5e3">
+<h2 id="org2fec5e3">js 生态</h2>
+<div class="outline-text-2" id="text-org2fec5e3">
+</div></section>
+<section id="slide-org466a474">
+<h4 id="org466a474">全栈语言</h4>
+<p>
+Server/Browser/Native
+</p>
+</section>
+<section id="slide-orgadcc20b">
+<h4 id="orgadcc20b">Server</h4>
+<ul>
+<li>Node.js</li>
+
+</ul>
+</section>
+<section id="slide-org11d94de">
+<h4 id="org11d94de">Browser</h4>
+<ul>
+<li>PC</li>
+<li>Mobile</li>
+
+</ul>
+</section>
+<section id="slide-org9003f3b">
+<h4 id="org9003f3b">Native</h4>
+<ul>
+<li>Electron,NW.js</li>
+<li>React Native</li>
+
+</ul>
+
+</section>
+<section id="slide-orgd241804">
+<h4 id="orgd241804">ES6</h4>
+<div class="outline-text-4" id="text-orgd241804">
+</div><ul class="org-ul"><li><a id="org1bf3662"></a>转换工具<br /><ul>
+<li>Babel</li>
+<li>Traceur</li>
+
+</ul></li>
+<li><a id="org1b4c6b8"></a>重要特性<br /><ul>
+<li>Class/Subclass</li>
+<li>Modules</li>
+<li>箭头函数</li>
+<li>let/const</li>
+<li>&#x2026;</li>
+<li>参考资料</li>
+
+</ul>
+
+<p>
+<a href="http://www.infoq.com/cn/es6-in-depth/">http://www.infoq.com/cn/es6-in-depth/</a>
+</p></li></ul>
+
+</section>
+<section id="slide-orgfb6b6ab">
+<h4 id="orgfb6b6ab">动态语言，函数式语言</h4>
+
+</section>
+</section>
+<section>
+<section id="slide-orgd8e7c89">
+<h2 id="orgd8e7c89">构建工具</h2>
+<div class="outline-text-2" id="text-orgd8e7c89">
+</div></section>
+<section id="slide-org23289e1">
+<h3 id="org23289e1">作用</h3>
+<div class="org-src-container">
+
+<pre  class="src src-sh">&#28304;&#20195;&#30721; --&gt; &#21487;&#25191;&#34892;&#20195;&#30721;
+</pre>
+</div>
+
+</section>
+<section id="slide-org96aaa98">
+<h3 id="org96aaa98">常用工具</h3>
+<p>
+grant，gulp，bower，npm，yarn,webpack，browerify,
+</p>
+
+<p>
+<a href="http://stackoverflow.com/questions/35062852/npm-vs-bower-vs-browserify-vs-gulp-vs-grunt-vs-webpack?rq=1">http://stackoverflow.com/questions/35062852/npm-vs-bower-vs-browserify-vs-gulp-vs-grunt-vs-webpack?rq=1</a>  
+</p>
+
+
+</section>
+<section id="slide-org608044a">
+<h3 id="org608044a">任务管理 (task runner)</h3>
+<p>
+gulp/grant &#x2014; make
+</p>
+
+</section>
+<section id="slide-org3b49ce4">
+<h3 id="org3b49ce4">包管理(package manager)</h3>
+<p>
+npm/yarn/bower&#x2014; maven/gradle
+</p>
+</section>
+<section id="slide-orgeab5c4d">
+<h3 id="orgeab5c4d">打包工具(bundling tool)</h3>
+<p>
+webpack,browserify
+</p>
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-org3f63961">
+<h2 id="org3f63961">React</h2>
+<div class="outline-text-2" id="text-org3f63961">
+</div></section>
+<section id="slide-org38ff563">
+<h4 id="org38ff563">Component</h4>
+<ul>
+<li>生命周期</li>
+<li>props和state</li>
+
+</ul>
+
+</section>
+<section id="slide-orgdd192f2">
+<h4 id="orgdd192f2">JSX 语法</h4>
+<ul>
+<li>用户定义的组件要大写开头</li>
+
+</ul>
+
+<div class="org-src-container">
+
+<pre  class="src src-js"><span style="color: #3a81c3; font-weight: bold;">import</span> React from <span style="color: #2d9574;">'react'</span>;
+
+<span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">Correct! This is a component and should be capitalized:</span>
+<span style="color: #3a81c3; font-weight: bold;">function</span> <span style="color: #6c3163; font-weight: bold;">Hello</span><span style="color: #3a81c3;">(</span><span style="color: #715ab1;">props</span><span style="color: #3a81c3;">)</span> <span style="color: #3a81c3;">{</span>
+  <span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">Correct! This use of &lt;div&gt; is legitimate because div is a valid HTML tag:</span>
+  <span style="color: #3a81c3; font-weight: bold;">return</span> &lt;div&gt;Hello <span style="color: #6c3163;">{</span>props.toWhat<span style="color: #6c3163;">}</span>&lt;/div&gt;;
+<span style="color: #3a81c3;">}</span>
+
+<span style="color: #3a81c3; font-weight: bold;">function</span> <span style="color: #6c3163; font-weight: bold;">HelloWorld</span><span style="color: #3a81c3;">()</span> <span style="color: #3a81c3;">{</span>
+  <span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">Correct! React knows &lt;Hello /&gt; is a component because it's capitalized.</span>
+  <span style="color: #3a81c3; font-weight: bold;">return</span> &lt;Hello toWhat=<span style="color: #2d9574;">"World"</span> /&gt;;
+<span style="color: #3a81c3;">}</span>
+
+</pre>
+</div>
+
+
+</section>
+<section id="slide-org4755020">
+<h4 id="org4755020">react-router</h4>
+</section>
+<section id="slide-orgc20b307">
+<h4 id="orgc20b307">redux</h4>
+</section>
+<section id="slide-orgd7c5187">
+<h4 id="orgd7c5187">create react app</h4>
+
+
+</section>
+<section id="slide-org87db3eb">
+<h4 id="org87db3eb">React Native</h4>
+
+
+
+</section>
+<section id="slide-org9531718">
+<h4 id="org9531718">更多</h4>
+<div class="outline-text-4" id="text-org9531718">
+</div><ul class="org-ul"><li><a id="orga61d815"></a>IDE<br /><p>
+Visual Code, Atom
+</p></li>
+
+<li><a id="org593e7af"></a>Typescript<br /></li></ul>
+</section>
+</section>
+</div>
+</div>
+<p> Created by 吴巍. </p>
+<script src="./reveal.js/lib/js/head.min.js"></script>
+<script src="./reveal.js/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: true,
+keyboard: true,
+overview: true,
+width: 1200,
+height: 800,
+margin: 0.10,
+minScale: 0.50,
+maxScale: 2.50,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'cube', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: './reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>

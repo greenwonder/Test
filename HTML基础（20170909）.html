@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>HTML基础</title>
+<meta name="author" content="(wei wu)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/css/theme/moon.css" id="theme"/>
+
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<meta name="description" content="H5基础">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">HTML基础</h1><h2 class="author">wei wu</h2><p class="date">Created: 2017-09-08 Fri 16:33</p>
+</section>
+<section id="table-of-contents">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#/slide-org07e9bee">环境搭建</a></li>
+<li><a href="#/slide-orgf118c09">文档结构</a></li>
+<li><a href="#/slide-orgb2e40d9">标签语法</a></li>
+<li><a href="#/slide-org40c24ed">HTML 控件</a></li>
+<li><a href="#/slide-orgc1a0029">超链接(hyperlink)</a></li>
+<li><a href="#/slide-org476d7c9">练习：</a></li>
+</ul>
+</div>
+</div>
+</section>
+
+<section>
+<section id="slide-org07e9bee">
+<h2 id="org07e9bee">环境搭建</h2>
+<div class="outline-text-2" id="text-org07e9bee">
+</div></section>
+<section id="slide-orgad07f56">
+<h4 id="orgad07f56">最简单的网页: v0.1.0</h4>
+<p>
+知识点: 搭建的静态http server,
+       HTML表示格式
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-orgf118c09">
+<h2 id="orgf118c09">文档结构</h2>
+<div class="outline-text-2" id="text-orgf118c09">
+</div></section>
+<section id="slide-org77c723c">
+<h3 id="org77c723c">&lt;!DOCTYPE html&gt;</h3>
+<p>
+文档类型（doctypes）,历史遗留，不用关心
+</p>
+</section>
+<section id="slide-org39da3e8">
+<h3 id="org39da3e8">&lt;html&gt;</h3>
+<p>
+包含整个页面的内容，也被称作根元素。
+</p>
+</section>
+<section id="slide-orga8a89ed">
+<h3 id="orga8a89ed">&lt;head&gt;</h3>
+<p>
+包含你想添加的所有内容，但是不会被用户所看到。这里面包括像想被搜索引擎搜索到的关键字（keywords）和页面描述，CSS样式表和字符编码声明等等。
+</p>
+</section>
+<section id="slide-orgee7e0f8">
+<h3 id="orgee7e0f8">&lt;body&gt;</h3>
+<p>
+被用户看到的内容，不管是文本，图像，视频，游戏，可播放的音轨或是其他内容。
+</p>
+</section>
+<section id="slide-orgf1d97e9">
+<h3 id="orgf1d97e9">&lt;meta&gt; : v0.1.1</h3>
+<p>
+表示网页全局的属性信息
+</p>
+<ul>
+<li>&lt;meta charset="utf-8"&gt;  
+指定了文档需要使用的字符编码，像 UTF-8 ，它包括了非常多人类已知语言的字符。基本上 UTF-8 可以处理任何文本内容。我们没有任何理由不去设定字符编码，而且也可以避免以后可能出现的问题。</li>
+<li>&lt;meta http-equiv="refresh" &gt;
+网页刷新</li>
+
+</ul>
+</section>
+<section id="slide-orgea3a428">
+<h3 id="orgea3a428">&lt;title&gt;: v0.1.2</h3>
+<p>
+设置了页面的标题，标题显示在浏览器标签页上，而且在你将网页添加到收藏夹或喜爱中时将作为默认名称。
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-orgb2e40d9">
+<h2 id="orgb2e40d9">标签语法</h2>
+<div class="outline-text-2" id="text-orgb2e40d9">
+</div></section>
+<section id="slide-org1075176">
+<h3 id="org1075176"><a href="html/grumpy-cat-small.png">基本标签</a></h3>
+
+<div class="figure">
+<p><img src="./html/grumpy-cat-small.png" alt="grumpy-cat-small.png" />
+</p>
+</div>
+
+</section>
+<section id="slide-org0d19ba0">
+<h3 id="org0d19ba0">内嵌元素</h3>
+<div class="org-src-container">
+
+<pre  class="src src-html">&lt;<span style="color: #bc6ec5; font-weight: bold;">p</span>&gt;Hello&lt;<span style="color: #bc6ec5; font-weight: bold;">strong</span>&gt;<span style="font-weight: bold;">!!!</span>&lt;/<span style="color: #bc6ec5; font-weight: bold;">strong</span>&gt; Hello.&lt;/<span style="color: #bc6ec5; font-weight: bold;">p</span>&gt;
+</pre>
+</div>
+</section>
+<section id="slide-org74a8a30">
+<h3 id="org74a8a30">元素分类</h3>
+<div class="outline-text-3" id="text-org74a8a30">
+</div></section>
+<section id="slide-org633ffa2">
+<h4 id="org633ffa2">块（Block） : v0.1.3</h4>
+<ul>
+<li>单独成行</li>
+<li>不能嵌套在"内联"，可以嵌套在"块"</li>
+<li>&lt;p&gt;,&lt;list&gt;,&lt;menu&gt;,&lt;footer&gt; ,&#x2026;</li>
+
+</ul>
+</section>
+<section id="slide-org2bb0efb">
+<h4 id="org2bb0efb">内联(inline)</h4>
+<ul>
+<li>嵌套在"块"中，不成行</li>
+<li>&lt;em&gt;,&lt;strong&gt;,&lt;a&gt;</li>
+
+</ul>
+</section>
+<section id="slide-org1dda411">
+<h3 id="org1dda411">空元素(Empty elements) : v0.1.4</h3>
+<div class="org-src-container">
+
+<pre  class="src src-html">&lt;<span style="color: #bc6ec5; font-weight: bold;">img</span> <span style="color: #7590db;">src</span>=<span style="color: #2d9574;">"./timg.jpg"</span> /&gt;
+</pre>
+</div>
+
+</section>
+<section id="slide-orgc1544f8">
+<h3 id="orgc1544f8"><a href="html/grumpy-cat-attribute-small.png">标签带属性</a></h3>
+
+<div class="figure">
+<p><img src="./html/grumpy-cat-attribute-small.png" alt="grumpy-cat-attribute-small.png" />
+</p>
+</div>
+
+</section>
+<section id="slide-orgdaf656b">
+<h4 id="orgdaf656b">&lt;a&gt;链接 : v0.1.5</h4>
+
+</section>
+</section>
+<section>
+<section id="slide-org40c24ed">
+<h2 id="org40c24ed">HTML 控件</h2>
+<div class="outline-text-2" id="text-org40c24ed">
+</div></section>
+<section id="slide-orgd659e7a">
+<h3 id="orgd659e7a">文字</h3>
+<div class="outline-text-3" id="text-orgd659e7a">
+</div></section>
+<section id="slide-orgdaaace0">
+<h4 id="orgdaaace0">文字的属性 : v0.1.5</h4>
+<p>
+文字的大小，颜色，位置，字体&#x2026;
+</p>
+</section>
+<section id="slide-org399ebe4">
+<h3 id="org399ebe4">排版</h3>
+<ul>
+<li>标题</li>
+<li>list</li>
+<li>table</li>
+
+</ul>
+</section>
+<section id="slide-org6591da6">
+<h4 id="org6591da6">标题 : v0.1.6</h4>
+<ul>
+<li>h1/h2/h3&#x2026;</li>
+
+</ul>
+</section>
+<section id="slide-org0e9f12d">
+<h4 id="org0e9f12d">list : v0.1.7</h4>
+<ul>
+<li>unorder</li>
+<li>order</li>
+
+</ul>
+</section>
+<section id="slide-orgeaedd30">
+<h3 id="orgeaedd30">图片</h3>
+<div class="outline-text-3" id="text-orgeaedd30">
+</div></section>
+<section id="slide-org5522a6c">
+<h4 id="org5522a6c">显示图片: v0.1.8</h4>
+<ul>
+<li>本地</li>
+<li>网络</li>
+<li>alt</li>
+<li>尺寸</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orgc1a0029">
+<h2 id="orgc1a0029">超链接(hyperlink)</h2>
+<div class="outline-text-2" id="text-orgc1a0029">
+</div></section>
+<section id="slide-org6c0fab2">
+<h3 id="org6c0fab2">超链接</h3>
+<ul>
+<li>HTML &#x2013; HyperText Markup Language</li>
+<li>从一个文档(位置)链接到另一个文档(位置)</li>
+
+</ul>
+</section>
+<section id="slide-org50d9bc1">
+<h3 id="org50d9bc1">URL(Uniform Resource Locator)</h3>
+<div class="outline-text-3" id="text-org50d9bc1">
+</div></section>
+<section id="slide-orgf43b3ab">
+<h4 id="orgf43b3ab">URL?</h4>
+<p>
+A text string specifying where a resource can be found on the Internet.
+</p>
+</section>
+<section id="slide-org2d98a3a">
+<h3 id="org2d98a3a">基本结构</h3>
+<div class="outline-text-3" id="text-org2d98a3a">
+</div></section>
+<section id="slide-orga977923">
+<h4 id="orga977923">例子</h4>
+<div class="org-src-container">
+
+<pre  class="src src-sh">https://developer.mozilla.org
+https://developer.mozilla.org/en-US/docs/Learn/
+https://developer.mozilla.org/en-US/search?<span style="color: #7590db;">q</span>=URL
+</pre>
+</div>
+
+</section>
+<section id="slide-org1633871">
+<h4 id="org1633871">结构</h4>
+<div class="org-src-container">
+
+<pre  class="src src-sh">http://www.example.com:80/path/to/myfile.html?<span style="color: #7590db;">key1</span>=value1&amp;<span style="color: #7590db;">key2</span>=value2#SomewhereInTheDocument
+</pre>
+</div>
+
+<ul>
+<li><a href="http://">http://</a>                  &#x2014; 协议</li>
+<li>www.example.com          &#x2014; 域名</li>
+<li>:80                      &#x2014; 端口</li>
+<li>/path/to/myfile.html     &#x2014; 文件路径</li>
+<li>?key1=value1&amp;key2=value2 &#x2014; 参数</li>
+<li>#SomewhereInTheDocument  &#x2014; 锚点（文档中的位置）</li>
+
+</ul>
+</section>
+<section id="slide-orgba60f93">
+<h4 id="orgba60f93">Protocol</h4>
+<ul>
+<li>http/https</li>
+<li>ftp</li>
+<li>mailto</li>
+<li>file</li>
+
+</ul>
+</section>
+<section id="slide-org7055a40">
+<h4 id="org7055a40">绝对路径</h4>
+<ul>
+<li><p>
+全路径
+</p>
+
+<p>
+<a href="https://developer.mozilla.org/en-US/docs/Learn">https://developer.mozilla.org/en-US/docs/Learn</a>    
+</p></li>
+
+<li><p>
+省略协议
+</p>
+
+<p>
+//developer.mozilla.org/en-US/docs/Learn
+</p></li>
+
+<li><p>
+省略域名
+</p>
+
+<p>
+/en-US/docs/Learn
+</p></li>
+
+</ul>
+
+</section>
+<section id="slide-org5daf0a4">
+<h4 id="org5daf0a4">相对路径</h4>
+<ul>
+<li>Sub resources</li>
+
+</ul>
+
+<div class="org-src-container">
+
+<pre  class="src src-sh">Skills/Infrastructure/Understanding_URLs   
+</pre>
+</div>
+
+<ul>
+<li>返回上级目录树</li>
+
+</ul>
+
+<div class="org-src-container">
+
+<pre  class="src src-sh">../CSS/display   
+</pre>
+</div>
+
+</section>
+<section id="slide-orgdb86e09">
+<h4 id="orgdb86e09">相对路径练习</h4>
+<div class="org-src-container">
+
+<pre  class="src src-sh">shell&#36755;&#20837;:  http-server ~/web-learning
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre  class="src src-sh">    &#27983;&#35272;&#37324;&#36755;&#20837;&#65306; http://localhost:8080
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre  class="src src-sh">    &#27983;&#35272;&#37324;&#36755;&#20837;&#65306; http://localhost:8080/.git
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre  class="src src-sh">    &#27983;&#35272;&#37324;&#36755;&#20837;&#65306; http://localhost:8080/.git/../index.html
+</pre>
+</div>
+
+</section>
+<section id="slide-orgbde8c08">
+<h3 id="orgbde8c08">HTML使用超链接</h3>
+<ul>
+<li>&lt;a&gt;</li>
+<li>&lt;link&gt;,&lt;script&gt;</li>
+<li>&lt;img&gt;,&lt;video,&lt;audio&gt;</li>
+<li>&lt;iframe&gt;</li>
+
+</ul>
+
+</section>
+<section id="slide-org55c9935">
+<h3 id="org55c9935">分拆index.html: v0.1.9</h3>
+
+</section>
+</section>
+<section>
+<section id="slide-org476d7c9">
+<h2 id="org476d7c9">练习：</h2>
+<p>
+修改文本属性的所有背景色
+</p>
+</section>
+</section>
+</div>
+</div>
+<p> Created by wuwei. </p>
+<script src="./reveal.js/lib/js/head.min.js"></script>
+<script src="./reveal.js/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: true,
+keyboard: true,
+overview: true,
+width: 1200,
+height: 800,
+margin: 0.10,
+minScale: 0.50,
+maxScale: 2.50,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'cube', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: './reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>CSS基础</title>
+<meta name="author" content="(wei wu)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/css/theme/moon.css" id="theme"/>
+
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<meta name="description" content="CSS基础">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">CSS基础</h1><h2 class="author">wei wu</h2><p class="date">Created: 2017-09-06 Wed 16:11</p>
+</section>
+<section id="table-of-contents">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#/slide-orge9a73f5">什么是CSS</a></li>
+<li><a href="#/slide-org2dbbae9">为什么用CSS</a></li>
+<li><a href="#/slide-orgb911170">使用css</a></li>
+<li><a href="#/slide-org0051e7d">选择符类型</a></li>
+<li><a href="#/slide-orgba07867">练习:</a></li>
+<li><a href="#/slide-orgea78bd3">Box Model</a></li>
+<li><a href="#/slide-orgb6f1fce">修改整个页面的背景色</a></li>
+<li><a href="#/slide-orgdf663c0">修改body</a></li>
+<li><a href="#/slide-org723e560">修改标题</a></li>
+<li><a href="#/slide-org26c0f4d">居中显示图片</a></li>
+</ul>
+</div>
+</div>
+</section>
+
+
+<section>
+<section id="slide-orge9a73f5">
+<h2 id="orge9a73f5">什么是CSS</h2>
+<p>
+Cascading Style Sheets（CSS）指定文档如何呈现
+</p>
+
+<ul>
+<li>网页背景色，背景图片，</li>
+<li>文本颜色</li>
+<li>文本，图片的显示位置</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org2dbbae9">
+<h2 id="org2dbbae9">为什么用CSS</h2>
+<p>
+集中管理html外观样式
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-orgb911170">
+<h2 id="orgb911170">使用css</h2>
+<div class="outline-text-2" id="text-orgb911170">
+</div></section>
+<section id="slide-org4abe3ea">
+<h3 id="org4abe3ea">修改p的颜色</h3>
+<div class="org-src-container">
+
+<pre  class="src src-css">p<span style="color: #4f97d7;">{</span>
+   <span style="color: #7590db;">color</span>: blue;
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+
+</section>
+<section id="slide-orgec2f506">
+<h3 id="orgec2f506">引入css</h3>
+<div class="outline-text-3" id="text-orgec2f506">
+</div></section>
+<section id="slide-orgea7f368">
+<h4 id="orgea7f368">创建 style.css文件</h4>
+</section>
+<section id="slide-orgad4cadb">
+<h4 id="orgad4cadb">文件内容</h4>
+<div class="org-src-container">
+
+<pre  class="src src-css">p<span style="color: #4f97d7;">{</span>
+   <span style="color: #7590db;">color</span>: blue;
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+</section>
+<section id="slide-orgba8ccc7">
+<h4 id="orgba8ccc7">加入 html文件</h4>
+<div class="org-src-container">
+
+<pre  class="src src-html">...
+&lt;<span style="color: #bc6ec5; font-weight: bold;">head</span>&gt;
+  <span style="color: #2aa1ae; background-color: #292e34;">&lt;!-- </span><span style="color: #2aa1ae; background-color: #292e34;">&#24573;&#30053;&#26080;&#20851;&#20195;&#30721; </span><span style="color: #2aa1ae; background-color: #292e34;">--&gt;</span>
+  &lt;<span style="color: #bc6ec5; font-weight: bold;">link</span> <span style="color: #7590db;">href</span>=<span style="color: #2d9574;">"style.css"</span> <span style="color: #7590db;">rel</span>=<span style="color: #2d9574;">"stylesheet"</span> <span style="color: #7590db;">type</span>=<span style="color: #2d9574;">"text/css"</span>&gt;
+  <span style="color: #2aa1ae; background-color: #292e34;">&lt;!-- </span><span style="color: #2aa1ae; background-color: #292e34;">&#24573;&#30053;&#26080;&#20851;&#20195;&#30721; </span><span style="color: #2aa1ae; background-color: #292e34;">--&gt;</span>
+&lt;/<span style="color: #bc6ec5; font-weight: bold;">head</span>&gt;
+</pre>
+</div>
+
+</section>
+<section id="slide-org85f3abf">
+<h3 id="org85f3abf">CSS规则</h3>
+
+<div class="figure">
+<p><img src="./css/css-declaration-small.png" alt="css-declaration-small.png" />
+</p>
+</div>
+
+</section>
+<section id="slide-org53ad0f7">
+<h4 id="org53ad0f7">基本规则</h4>
+<ul>
+<li><p>
+选择符(Selector)
+</p>
+
+<p>
+选择一个或多个样式元素
+</p></li>
+
+<li><p>
+声明(Declaration)
+</p>
+
+<p>
+声明一个规则，指定样式元素的属性
+</p></li>
+
+<li>属性</li>
+
+<li><p>
+属性值
+</p>
+
+<p>
+冒号后面，分号结尾
+</p></li>
+
+</ul>
+
+</section>
+<section id="slide-org1efbb39">
+<h4 id="org1efbb39">选择符(Selector)</h4>
+<div class="outline-text-4" id="text-org1efbb39">
+</div><ul class="org-ul"><li><a id="org7b8bdb9"></a>多个样式元素<br /><div class="org-src-container">
+
+<pre  class="src src-css"><span style="color: #bc6ec5; font-weight: bold;">p,li,h1</span><span style="color: #4f97d7;">{</span>
+  <span style="color: #7590db;">color</span>: red;
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div></li></ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org0051e7d">
+<h2 id="org0051e7d">选择符类型</h2>
+<div class="outline-text-2" id="text-org0051e7d">
+</div></section>
+<section id="slide-org7f442cc">
+<h4 id="org7f442cc">元素</h4>
+<p>
+html的元素
+</p>
+</section>
+<section id="slide-orge1cd060">
+<h4 id="orge1cd060">ID</h4>
+<p>
+指定ID的元素（ID唯一)
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-html">#my-id
+&#36873;&#25321;:&lt;<span style="color: #bc6ec5; font-weight: bold;">p</span> <span style="color: #7590db;">id</span>=<span style="color: #2d9574;">"my-id"</span>&gt;&#25110;&lt;<span style="color: #bc6ec5; font-weight: bold;">a</span> <span style="color: #7590db;">id</span>=<span style="color: #2d9574;">"my-id"</span>&gt;
+</pre>
+</div>
+</section>
+<section id="slide-org724d962">
+<h4 id="org724d962">Class</h4>
+<p>
+指定Class的元素(不唯一)
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-css">.my-class
+<span style="color: #7590db;">&#36873;&#25321;</span>:&lt;p class=<span style="color: #2d9574;">"my-id"</span>&gt;&#25110;&lt;a class=<span style="color: #2d9574;">"my-id"</span>&gt;
+</pre>
+</div>
+</section>
+<section id="slide-org10a962a">
+<h4 id="org10a962a">属性</h4>
+<p>
+页面上拥有指定属性的元素
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-css">img<span style="color: #4f97d7;">[</span>src<span style="color: #4f97d7;">]</span>
+<span style="color: #7590db;">&#36873;&#25321;</span>:&lt;img src=<span style="color: #2d9574;">"myimage.png&gt;&#32780;&#19981;&#26159;&lt;img&gt;</span>
+</pre>
+</div>
+</section>
+<section id="slide-org6ab652d">
+<h4 id="org6ab652d">伪类</h4>
+<p>
+指定的元素，但是需要在特殊的状态
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-example">a:hover
+选择&lt;a&gt;,但是只在鼠标悬停在链接上时。
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orgba07867">
+<h2 id="orgba07867">练习:</h2>
+<ul>
+<li>text margin background to red</li>
+<li>font family</li>
+
+</ul>
+
+<div class="org-src-container">
+
+<pre  class="src src-css">  &#35775;&#38382; www.googlefonts.cn/fonts
+</pre>
+</div>
+
+<ul>
+<li>change &lt;li&gt; font size</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgea78bd3">
+<h2 id="orgea78bd3">Box Model</h2>
+
+<div class="figure">
+<p><img src="./css/box-model.png" alt="box-model.png" />
+</p>
+</div>
+
+</section>
+<section id="slide-org16b06f6">
+<h3 id="org16b06f6">margin</h3>
+<p>
+外边距
+</p>
+
+</section>
+<section id="slide-org261f6c0">
+<h4 id="org261f6c0">四种位置表示</h4>
+<ul>
+<li><p>
+1个值
+</p>
+
+<p>
+所有四边
+</p></li>
+
+<li><p>
+2个值
+</p>
+
+<p>
+垂直|水平
+</p></li>
+
+<li><p>
+3个值
+</p>
+
+<p>
+上|水平|下
+</p></li>
+
+<li><p>
+4个值
+</p>
+
+<p>
+上|右|下|左
+</p></li>
+
+</ul>
+
+<p>
+顺时针
+</p>
+
+</section>
+<section id="slide-org6883337">
+<h4 id="org6883337">数值单位</h4>
+<ul>
+<li><p>
+px
+</p>
+
+<p>
+像素
+</p></li>
+
+<li><p>
+em
+</p>
+
+<p>
+1em 表示1个父元素字体的高度
+</p></li>
+<li><p>
+%
+</p>
+
+<p>
+相对于父元素的百分比
+</p></li>
+<li><p>
+rem
+</p>
+
+<p>
+1rem 表示1个根元素的字体高度
+</p></li>
+<li><p>
+auto
+</p>
+
+<p>
+水平居中   
+</p></li>
+
+</ul>
+<p>
+** padding
+内边距
+</p>
+
+</section>
+<section id="slide-org9138a41">
+<h3 id="org9138a41">width</h3>
+<p>
+元素宽度
+</p>
+</section>
+<section id="slide-org0c899d5">
+<h3 id="org0c899d5">background-color</h3>
+<p>
+背景色
+</p>
+</section>
+<section id="slide-org3ae4ae2">
+<h3 id="org3ae4ae2">color</h3>
+<p>
+文字的颜色
+</p>
+</section>
+<section id="slide-orgf33141d">
+<h3 id="orgf33141d">text-shadow</h3>
+<div class="org-src-container">
+
+<pre  class="src src-css"><span style="color: #7590db;">text-shadow</span>: <span style="color: #a45bad;">2px</span> <span style="color: #a45bad;">2px</span> <span style="color: #a45bad;">1px</span> black;
+</pre>
+</div>
+<ul>
+<li>第一个像素值设置了水平方向的阴影值</li>
+<li>第二个像素值设置了垂直方向的阴影值</li>
+<li>第三个像素值设置了阴影模糊的距离（越大的值表示越模糊）</li>
+<li>第四个值设置了阴影的颜色</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgb6f1fce">
+<h2 id="orgb6f1fce">修改整个页面的背景色</h2>
+</section>
+</section>
+<section>
+<section id="slide-orgdf663c0">
+<h2 id="orgdf663c0">修改body</h2>
+</section>
+</section>
+<section>
+<section id="slide-org723e560">
+<h2 id="org723e560">修改标题</h2>
+</section>
+</section>
+<section>
+<section id="slide-org26c0f4d">
+<h2 id="org26c0f4d">居中显示图片</h2>
+<ul>
+<li>display: block;</li>
+
+</ul>
+<p>
+把img当成块元素显示
+</p>
+</section>
+</section>
+</div>
+</div>
+<p> Created by wuwei. </p>
+<script src="./reveal.js/lib/js/head.min.js"></script>
+<script src="./reveal.js/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: true,
+keyboard: true,
+overview: true,
+width: 1200,
+height: 800,
+margin: 0.10,
+minScale: 0.50,
+maxScale: 2.50,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'cube', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: './reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>

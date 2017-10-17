@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>CSS高级</title>
+<meta name="author" content="(wei wu)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/css/theme/moon.css" id="theme"/>
+
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<meta name="description" content="CSS高级">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">CSS高级</h1><h2 class="author">wei wu</h2><p class="date">Created: 2017-10-13 Fri 16:07</p>
+</section>
+<section id="table-of-contents">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#/slide-org6656edd">Layout</a></li>
+<li><a href="#/slide-org4e64540">CSS命名规范</a></li>
+<li><a href="#/slide-orgc42bba7">CSS模块化</a></li>
+<li><a href="#/slide-org0662485">Bootstrap (CSS框架)</a></li>
+</ul>
+</div>
+</div>
+</section>
+<section>
+<section id="slide-org6656edd">
+<h2 id="org6656edd">Layout</h2>
+<div class="outline-text-2" id="text-org6656edd">
+</div></section>
+<section id="slide-orgce4d4a4">
+<h3 id="orgce4d4a4">float</h3>
+<div class="outline-text-3" id="text-orgce4d4a4">
+</div></section>
+<section id="slide-orgc667fdf">
+<h4 id="orgc667fdf">简单的例子: v0.1.53</h4>
+</section>
+<section id="slide-orgd36efe5">
+<h4 id="orgd36efe5">2列: v0.1.54</h4>
+</section>
+<section id="slide-org8f03ff4">
+<h4 id="org8f03ff4">3列: v0.1.55</h4>
+</section>
+<section id="slide-org7c52b6d">
+<h4 id="org7c52b6d">clear: v0.1.56</h4>
+</section>
+<section id="slide-org8e75473">
+<h4 id="org8e75473">float子元素超出父元素: v0.1.57</h4>
+</section>
+<section id="slide-org17e2c62">
+<h3 id="org17e2c62">flexbox</h3>
+<p>
+解决不同屏幕和设备的显示问题
+</p>
+
+</section>
+<section id="slide-org80f3ff4">
+<h4 id="org80f3ff4">基本概念</h4>
+
+<div class="figure">
+<p><img src="./css/css-flexbox.png" alt="css-flexbox.png" />
+</p>
+</div>
+
+
+</section>
+<section id="slide-org50d03d7">
+<h4 id="org50d03d7">flex-container（容器)</h4>
+<p>
+包含显示元素的区域
+</p>
+</section>
+<section id="slide-org05ec4d9">
+<h4 id="org05ec4d9">flex item(子项)</h4>
+<p>
+flex container内的显示元素
+</p>
+</section>
+<section id="slide-org951bee4">
+<h4 id="org951bee4">Axes</h4>
+<p>
+坐标
+</p>
+<ul class="org-ul"><li><a id="org518ee53"></a>main axis<br /><p>
+元素排列的方向
+</p></li>
+
+<li><a id="orgc97358f"></a>cross axis<br /><p>
+元素排列的垂直方向
+</p></li></ul>
+
+</section>
+<section id="slide-org4e0b4f4">
+<h4 id="org4e0b4f4">flex-direction</h4>
+<p>
+元素排列的方向。
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org4e64540">
+<h2 id="org4e64540">CSS命名规范</h2>
+<div class="outline-text-2" id="text-org4e64540">
+</div></section>
+<section id="slide-org21b2e0e">
+<h3 id="org21b2e0e">BEM : v0.1.59</h3>
+<div class="org-src-container">
+
+<pre  class="src src-sh">.block <span style="color: #4f97d7;">{}</span>                       //&#27169;&#22359;
+.block__element <span style="color: #4f97d7;">{}</span>              //&#27169;&#22359;&#30340;&#23376;&#20803;&#32032;
+.bolck--modifier <span style="color: #4f97d7;">{}</span>             //&#27169;&#22359;&#30340;&#19981;&#21516;&#29366;&#24577;&#25110;&#29256;&#26412;
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orgc42bba7">
+<h2 id="orgc42bba7">CSS模块化</h2>
+<div class="outline-text-2" id="text-orgc42bba7">
+</div></section>
+<section id="slide-org220020f">
+<h3 id="org220020f">分拆css文件 : v0.1.60</h3>
+</section>
+</section>
+<section>
+<section id="slide-org0662485">
+<h2 id="org0662485">Bootstrap (CSS框架)</h2>
+<p>
+<a href="http://v3.bootcss.com/">http://v3.bootcss.com/</a>
+</p>
+
+<p>
+HTML，CSS和JS框架
+</p>
+
+</section>
+<section id="slide-org1c29796">
+<h3 id="org1c29796">安装</h3>
+<div class="outline-text-3" id="text-org1c29796">
+</div></section>
+<section id="slide-org95e42f6">
+<h4 id="org95e42f6">CDN</h4>
+</section>
+<section id="slide-org661c60d">
+<h4 id="org661c60d">npm</h4>
+</section>
+</section>
+</div>
+</div>
+<p> Created by wuwei. </p>
+<script src="./reveal.js/lib/js/head.min.js"></script>
+<script src="./reveal.js/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: true,
+keyboard: true,
+overview: true,
+width: 1200,
+height: 800,
+margin: 0.10,
+minScale: 0.50,
+maxScale: 2.50,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'cube', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: './reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>

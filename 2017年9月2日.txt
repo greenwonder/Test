@@ -1,0 +1,192 @@
+Git Bash
+
+
+Justin@Justin-PC MINGW64 ~
+$ node -v
+v8.4.0
+
+Justin@Justin-PC MINGW64 ~
+$ pwd
+/c/Users/Justin
+
+Justin@Justin-PC MINGW64 ~
+$ cat .npmrc
+cat: .npmrc: No such file or directory
+
+Justin@Justin-PC MINGW64 ~
+$ edit ~/.npmrc
+bash: edit: command not found
+
+Justin@Justin-PC MINGW64 ~
+$ cat <<EOF> ~/.npmrc
+> prefix=~/.npm-packages
+> registry=https://registry.npm.taobao.org
+> EOF
+
+Justin@Justin-PC MINGW64 ~
+$ cat .npmrc
+prefix=~/.npm-packages
+registry=https://registry.npm.taobao.org
+
+Justin@Justin-PC MINGW64 ~
+$ mkdir ~/web-learning
+git init
+Justin@Justin-PC MINGW64 ~
+$ cd ~/web-learning
+
+Justin@Justin-PC MINGW64 ~/web-learning
+$ git init
+Initialized empty Git repository in C:/Users/Justin/web-learning/.git/
+
+Justin@Justin-PC MINGW64 ~/web-learning (master)
+$ pwd
+/c/Users/Justin/web-learning
+
+Justin@Justin-PC MINGW64 ~/web-learning (master)
+$ ls -al
+total 20
+drwxr-xr-x 1 Justin 197121 0 九月  2 14:41 ./
+drwxr-xr-x 1 Justin 197121 0 九月  2 14:40 ../
+drwxr-xr-x 1 Justin 197121 0 九月  2 14:41 .git/
+
+Justin@Justin-PC MINGW64 ~/web-learning (master)
+$ code .
+
+Justin@Justin-PC MINGW64 ~/web-learning (master)
+$ cd ~/w
+web-learning/     workspace/        Workspaces/
+WebstormProjects/ workspace1/
+
+Justin@Justin-PC MINGW64 ~/web-learning (master)
+$ cd ~/w
+web-learning/     workspace/        Workspaces/
+WebstormProjects/ workspace1/
+
+Justin@Justin-PC MINGW64 ~/web-learning (master)
+$ cd ~/web-learning/
+
+Justin@Justin-PC MINGW64 ~/web-learning (master)
+$ ls -al
+total 20
+drwxr-xr-x 1 Justin 197121 0 九月  2 14:41 ./
+drwxr-xr-x 1 Justin 197121 0 九月  2 14:40 ../
+drwxr-xr-x 1 Justin 197121 0 九月  2 14:47 .git/
+
+Justin@Justin-PC MINGW64 ~/web-learning (master)
+$ git statues
+git: 'statues' is not a git command. See 'git --help'.
+
+Did you mean this?
+        status
+
+Justin@Justin-PC MINGW64 ~/web-learning (master)
+$ git st
+git: 'st' is not a git command. See 'git --help'.
+
+Did you mean one of these?
+        status
+        reset
+        stage
+        stash
+        svn
+
+Justin@Justin-PC MINGW64 ~/web-learning (master)
+$ git status
+On branch master
+
+Initial commit
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        index.htm
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Justin@Justin-PC MINGW64 ~/web-learning (master)
+$ npm install -g http-server
+C:\Users\Justin\.npm-packages\http-server -> C:\Users\Justin\.npm-packages\node_                                             modules\http-server\bin\http-server
+C:\Users\Justin\.npm-packages\hs -> C:\Users\Justin\.npm-packages\node_modules\h                                             ttp-server\bin\http-server
++ http-server@0.10.0
+added 23 packages in 7.616s
+
+Justin@Justin-PC MINGW64 ~/web-learning (master)
+$ http -server -help
+bash: http: command not found
+
+Justin@Justin-PC MINGW64 ~/web-learning (master)
+$ http -server --help
+bash: http: command not found
+
+Justin@Justin-PC MINGW64 ~/web-learning (master)
+$ http-server --help
+bash: http-server: command not found
+
+Justin@Justin-PC MINGW64 ~/web-learning (master)
+$ http -server --help
+bash: http: command not found
+
+Justin@Justin-PC MINGW64 ~/web-learning (master)
+$ http-server --help
+bash: http-server: command not found
+
+Justin@Justin-PC MINGW64 ~/web-learning (master)
+$ http-server --help
+bash: http-server: command not found
+
+Justin@Justin-PC MINGW64 ~/web-learning (master)
+$ http-server ./index.html
+bash: http-server: command not found
+
+Justin@Justin-PC MINGW64 ~/web-learning (master)
+$ pwd
+/c/Users/Justin/web-learning
+
+Justin@Justin-PC MINGW64 ~/web-learning (master)
+$ ^C
+
+Justin@Justin-PC MINGW64 ~/web-learning (master)
+$ ~/\Users\Justin\.npm-packages\node_modules\h                     ttp-server\bin\http-serverh
+bash: /c/Users/Justin/UsersJustin.npm-packagesnode_modulesh: No such file or directory
+
+Justin@Justin-PC MINGW64 ~/web-learning (master)
+$ http-server --help
+bash: http-server: command not found
+
+Justin@Justin-PC MINGW64 ~/web-learning (master)
+$ ^C
+
+Justin@Justin-PC MINGW64 ~/web-learning (master)
+$ http-server --help
+bash: http-server: command not found
+
+Justin@Justin-PC MINGW64 ~/web-learning (master)
+$ npm install -g http-server
+C:\Users\Justin\.npm-packages\http-server -> C:\Users\Justin\.npm-packages\node_modules\http-server\b                        in\http-server
+C:\Users\Justin\.npm-packages\hs -> C:\Users\Justin\.npm-packages\node_modules\http-server\bin\http-s                        erver
++ http-server@0.10.0
+updated 1 package in 3.033s
+
+Justin@Justin-PC MINGW64 ~/web-learning (master)
+$ npm install http-server
+npm WARN saveError ENOENT: no such file or directory, open 'C:\Users\Justin\web-learning\package.json                        '
+npm notice created a lockfile as package-lock.json. You should commit this file.
+npm WARN enoent ENOENT: no such file or directory, open 'C:\Users\Justin\web-learning\package.json'
+npm WARN web-learning No description
+npm WARN web-learning No repository field.
+npm WARN web-learning No README data
+npm WARN web-learning No license field.
+
++ http-server@0.10.0
+added 23 packages in 5.059s
+
+Justin@Justin-PC MINGW64 ~/web-learning (master)
+$ http-server --help
+bash: http-server: command not found
+
+Justin@Justin-PC MINGW64 ~/web-learning (master)
+$ http-server --help
+bash: http-server: command not found
+
+Justin@Justin-PC MINGW64 ~/web-learning (master)
+$

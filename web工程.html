@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>web工程</title>
+<meta name="author" content="(wei wu)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/css/theme/moon.css" id="theme"/>
+
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<meta name="description" content="web工程">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">web工程</h1><h2 class="author">wei wu</h2><p class="date">Created: 2017-10-13 Fri 15:51</p>
+</section>
+<section id="table-of-contents">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#/slide-orgb1cfae4">问题</a></li>
+<li><a href="#/slide-org874e97f">构建工具，任务管理工具</a></li>
+<li><a href="#/slide-org79e491d">改成单页面程序</a></li>
+<li><a href="#/slide-orgc8f62bf">单元测试 : v0.1.72</a></li>
+</ul>
+</div>
+</div>
+</section>
+
+<section>
+<section id="slide-orgb1cfae4">
+<h2 id="orgb1cfae4">问题</h2>
+<div class="outline-text-2" id="text-orgb1cfae4">
+</div></section>
+<section id="slide-org7d2625c">
+<h3 id="org7d2625c">项目模块化</h3>
+</section>
+<section id="slide-org93e69b2">
+<h3 id="org93e69b2">js文件模块复用</h3>
+</section>
+<section id="slide-org7ab510f">
+<h3 id="org7ab510f">自动刷新页面</h3>
+</section>
+<section id="slide-orgb79c430">
+<h3 id="orgb79c430">js语法检查</h3>
+</section>
+<section id="slide-org6ab6d2f">
+<h3 id="org6ab6d2f">js代码混淆</h3>
+</section>
+<section id="slide-orgc800b11">
+<h3 id="orgc800b11">单页面程序</h3>
+<ul>
+<li>减少下载文件</li>
+<li>速度快用户体验更好</li>
+<li>可以写复杂的页面</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org874e97f">
+<h2 id="org874e97f">构建工具，任务管理工具</h2>
+<p>
+gulp,grant
+</p>
+
+</section>
+<section id="slide-org994a690">
+<h3 id="org994a690">gulp</h3>
+<p>
+<a href="https://gulpjs.com/">https://gulpjs.com/</a>
+</p>
+
+</section>
+<section id="slide-orga7e2cb4">
+<h4 id="orga7e2cb4">安装</h4>
+<div class="org-src-container">
+
+<pre  class="src src-sh"><span style="color: #4f97d7;">cd</span> ~/web-learning
+npm install gulp-cli -g
+npm install gulp -D
+touch gulpfile.js
+gulp --help
+</pre>
+</div>
+</section>
+<section id="slide-orge959d8f">
+<h3 id="orge959d8f">自动刷新页面 : v0.1.38</h3>
+<div class="outline-text-3" id="text-orge959d8f">
+</div></section>
+<section id="slide-org521832a">
+<h4 id="org521832a">安装 broswer-sync</h4>
+<div class="org-src-container">
+
+<pre  class="src src-sh">npm install browser-sync -D
+</pre>
+</div>
+
+</section>
+<section id="slide-orgbf49a1e">
+<h4 id="orgbf49a1e">编辑 gulpfile.js</h4>
+<div class="org-src-container">
+
+<pre  class="src src-javascript"><span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">gulp</span> = require<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'gulp'</span><span style="color: #4f97d7;">)</span>;
+<span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">browserSync</span> = require<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'browser-sync'</span><span style="color: #4f97d7;">)</span>.create<span style="color: #4f97d7;">()</span>;
+<span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">reload</span> = browserSync.reload;
+
+<span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">Static server</span>
+gulp.task<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'browser-sync'</span>,<span style="color: #4f97d7; font-weight: bold;">function</span><span style="color: #bc6ec5;">(){</span>
+    browserSync.init<span style="color: #2d9574;">(</span><span style="color: #67b11d;">{</span>
+        server:<span style="color: #b1951d;">{</span>
+            baseDir: <span style="color: #2d9574;">"./"</span>
+        <span style="color: #b1951d;">}</span>
+    <span style="color: #67b11d;">}</span><span style="color: #2d9574;">)</span>;
+    <span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">html&#25991;&#20214;&#25913;&#21464;&#65292;&#23601;&#33258;&#21160;&#21047;&#26032;&#39029;&#38754;</span>
+    gulp.watch<span style="color: #2d9574;">(</span><span style="color: #2d9574;">"src/**/*.html"</span><span style="color: #2d9574;">)</span>.on<span style="color: #2d9574;">(</span><span style="color: #2d9574;">"change"</span>,reload<span style="color: #2d9574;">)</span>;
+<span style="color: #bc6ec5;">}</span><span style="color: #4f97d7;">)</span>;
+
+</pre>
+</div>
+
+</section>
+<section id="slide-org2fea743">
+<h4 id="org2fea743">监听更多文件：v0.1.39</h4>
+</section>
+<section id="slide-org7c8586c">
+<h4 id="org7c8586c">gulp task： v0.1.40</h4>
+</section>
+<section id="slide-org0301262">
+<h3 id="org0301262">如果简化安装?</h3>
+<div class="org-src-container">
+
+<pre  class="src src-sh">  &#19968;&#27425;&#23433;&#35013; gulp&#21644; browserSync
+</pre>
+</div>
+</section>
+<section id="slide-orgedeac3f">
+<h3 id="orgedeac3f">包管理工具</h3>
+<p>
+<a href="https://npmjs.com">npm</a>
+</p>
+
+</section>
+<section id="slide-orgdabcc0e">
+<h4 id="orgdabcc0e">初始化项目 : v0.1.41</h4>
+<div class="org-src-container">
+
+<pre  class="src src-javascript">npm init
+</pre>
+</div>
+
+</section>
+<section id="slide-orgd2dd8ea">
+<h4 id="orgd2dd8ea">添加gulp和browserSync : v0.1.42</h4>
+</section>
+<section id="slide-org1b23957">
+<h4 id="org1b23957">package.json介绍</h4>
+<ul>
+<li>main 
+工程的入口</li>
+
+<li><p>
+dependencies
+</p>
+
+<p>
+正式代码使用的依赖库。
+</p></li>
+
+<li><p>
+devDependencies
+</p>
+
+<p>
+测试代码，代码处理工具等辅助库
+</p></li>
+
+<li><p>
+scripts : v0.1.43
+</p>
+
+<p>
+脚本
+</p></li>
+
+</ul>
+
+<div class="org-src-container">
+
+<pre  class="src src-javascript">npm start
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre  class="src src-javascript">npm run hello
+</pre>
+</div>
+
+</section>
+<section id="slide-orgc786961">
+<h3 id="orgc786961">js文件模块复用</h3>
+<p>
+把math.js模块化
+</p>
+
+</section>
+<section id="slide-orgf7cd2f0">
+<h4 id="orgf7cd2f0">导入／导出模块</h4>
+<div class="org-src-container">
+
+<pre  class="src src-js"><span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">&#40664;&#35748;&#23548;&#20986;&#20989;&#25968;</span>
+<span style="color: #4f97d7; font-weight: bold;">export</span> <span style="color: #4f97d7; font-weight: bold;">default</span> <span style="color: #4f97d7; font-weight: bold;">function</span><span style="color: #4f97d7;">(){</span> ... <span style="color: #4f97d7;">}</span>
+<span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">&#40664;&#35748;&#23548;&#20986;class</span>
+<span style="color: #4f97d7; font-weight: bold;">export</span> <span style="color: #4f97d7; font-weight: bold;">default</span> <span style="color: #4f97d7; font-weight: bold;">class</span><span style="color: #4f97d7;">(){</span> ... <span style="color: #4f97d7;">}</span>
+<span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">&#21629;&#21517;&#23548;&#20986;&#19968;&#20010;&#19968;&#23450;&#20041;&#30340;&#20989;&#25968;</span>
+<span style="color: #4f97d7; font-weight: bold;">export</span> <span style="color: #4f97d7;">{</span> someFunction <span style="color: #4f97d7;">}</span>
+<span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">&#21629;&#21517;&#23548;&#20986;&#19968;&#20010;&#24120;&#25968;</span>
+<span style="color: #4f97d7; font-weight: bold;">export</span> <span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #7590db;">foo</span> = <span style="color: #a45bad;">2</span>;
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre  class="src src-js"><span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">&#23548;&#20837;&#40664;&#35748;&#20540;</span>
+<span style="color: #4f97d7; font-weight: bold;">import</span> defaultMember from <span style="color: #2d9574;">'module-name'</span>&#65307;
+<span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">&#23548;&#20837;&#27169;&#22359;&#37324;&#25152;&#26377;&#23548;&#20986;&#20540;</span>
+<span style="color: #4f97d7; font-weight: bold;">import</span> * as name from <span style="color: #2d9574;">'module-name'</span>;
+<span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">&#23548;&#20837;&#27169;&#22359;&#37324;&#26576;&#19968;&#20010;&#23548;&#20986;&#20540;</span>
+<span style="color: #4f97d7; font-weight: bold;">import</span> <span style="color: #4f97d7;">{</span> member <span style="color: #4f97d7;">}</span> from <span style="color: #2d9574;">'module-name'</span>;
+<span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">&#23548;&#20837;&#27169;&#22359;&#37324;&#26576;&#19968;&#20010;&#23548;&#20986;&#20540;&#65292;&#24182;&#37325;&#21629;&#21517;</span>
+<span style="color: #4f97d7; font-weight: bold;">import</span> <span style="color: #4f97d7;">{</span> member as alias<span style="color: #4f97d7;">}</span> from <span style="color: #2d9574;">'module-name'</span>;
+</pre>
+</div>
+
+<ul>
+<li>babel</li>
+
+</ul>
+
+</section>
+<section id="slide-org03bcdfb">
+<h3 id="org03bcdfb">打包工具 : v0.1.44</h3>
+<p>
+webpack
+</p>
+</section>
+<section id="slide-org6b0768f">
+<h4 id="org6b0768f">安装</h4>
+<div class="org-src-container">
+
+<pre  class="src src-sh">npm install --save-dev webpack@<span style="color: #a45bad;">2</span>
+</pre>
+</div>
+
+</section>
+<section id="slide-org6b22060">
+<h4 id="org6b22060">babel</h4>
+<div class="org-src-container">
+
+<pre  class="src src-sh">npm install babel-loader babel-core babel-preset-es2015 --save-dev 
+</pre>
+</div>
+
+</section>
+<section id="slide-orga4657a9">
+<h4 id="orga4657a9">编写webpack.config.js</h4>
+<div class="org-src-container">
+
+<pre  class="src src-javascript"><span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #7590db;">path</span> = require<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'path'</span><span style="color: #4f97d7;">)</span>;
+
+module.exports = <span style="color: #4f97d7;">{</span>
+    entry: <span style="color: #2d9574;">'./src/js_basic/hello.js'</span>,
+    output:<span style="color: #bc6ec5;">{</span>
+        filename: <span style="color: #2d9574;">'hello_bundle.js'</span>,
+        path: path.resolve<span style="color: #2d9574;">(</span>__dirname, <span style="color: #2d9574;">'src/js_basic'</span><span style="color: #2d9574;">)</span>
+    <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>;
+</pre>
+</div>
+
+</section>
+<section id="slide-orgf08bf74">
+<h4 id="orgf08bf74">改写 math.js</h4>
+</section>
+<section id="slide-orgd11ebfd">
+<h4 id="orgd11ebfd">改写 hello.js</h4>
+</section>
+<section id="slide-orgb42614d">
+<h4 id="orgb42614d">改写 js_basic.html</h4>
+</section>
+<section id="slide-org7c14ace">
+<h4 id="org7c14ace">计算器使用math 模块: v0.1.45</h4>
+
+</section>
+</section>
+<section>
+<section id="slide-org79e491d">
+<h2 id="org79e491d">改成单页面程序</h2>
+<div class="outline-text-2" id="text-org79e491d">
+</div></section>
+<section id="slide-org33cb141">
+<h3 id="org33cb141">修改index.html,添加一个入口: v0.1.46</h3>
+</section>
+<section id="slide-org4873991">
+<h3 id="org4873991">所有入口加到index.js: v0.1.47</h3>
+</section>
+<section id="slide-org8538a99">
+<h3 id="org8538a99">js变化，自动编译: v0.1.48</h3>
+</section>
+<section id="slide-orgc7a5189">
+<h3 id="orgc7a5189">js_basic.html的功能移到hello.js: v0.1.49</h3>
+</section>
+<section id="slide-org05bcc66">
+<h3 id="org05bcc66">js_basic不用js_basic.html: v0.1.50</h3>
+<ul>
+<li><p>
+闭包
+</p>
+
+<p>
+<a href="./Javascript高级.html">Javascript高级-闭包</a>
+</p></li>
+
+</ul>
+
+</section>
+<section id="slide-org6b45a8d">
+<h3 id="org6b45a8d">修改页面上的undefined: v0.1.51</h3>
+</section>
+<section id="slide-orga553faa">
+<h3 id="orga553faa">js_basic显示在另一个div里，保留各个模块入口:  v0.1.52</h3>
+</section>
+<section id="slide-org5cc2145">
+<h3 id="org5cc2145">分列布局，侧边栏导航 : v0.1.58</h3>
+<ul>
+<li>CSS 分列
+<a href="./CSS高级.html">CSS高级float</a></li>
+
+</ul>
+</section>
+<section id="slide-org93e66f3">
+<h3 id="org93e66f3">导航栏美化: v0.1.59</h3>
+<ul>
+<li>CSS 命名规范 : v0.1.59
+<a href="./CSS高级.html">CSS高级-命名规范</a></li>
+<li>CSS 模块化 : v0.1.60
+<a href="./CSS高级.html">CSS高级-模块化</a></li>
+
+</ul>
+
+</section>
+<section id="slide-org927387b">
+<h3 id="org927387b">calc 换成单页面: v0.1.61</h3>
+</section>
+<section id="slide-org668c359">
+<h3 id="org668c359">calc 布局改善:</h3>
+<ul>
+<li>用 ul，li改善: v0.1.62</li>
+<li>css flexbox 水平: v0.1.63</li>
+<li>css flexbox 垂直: v0.1.64</li>
+<li>用 flex 改善计算器布局: v0.1.65</li>
+
+</ul>
+</section>
+<section id="slide-orgd85aaa0">
+<h3 id="orgd85aaa0">flex 改写首页: v0.1.66</h3>
+<p>
+<a href="./CSS高级.html">CSS高级-flexbox</a>
+</p>
+</section>
+<section id="slide-org0e017c0">
+<h3 id="org0e017c0">calc 添加+: v0.1.67</h3>
+</section>
+<section id="slide-org7953734">
+<h3 id="org7953734">calc 添加/,-的功能: v0.1.68</h3>
+</section>
+<section id="slide-org1429153">
+<h3 id="org1429153">calc 添加单元测试: v0.1.72</h3>
+<p>
+<a href="#/slide-orgc8f62bf">单元测试 : v0.1.72</a>
+</p>
+
+</section>
+<section id="slide-orgc37f87c">
+<h3 id="orgc37f87c">calc 能处理多位数</h3>
+<div class="outline-text-3" id="text-orgc37f87c">
+</div></section>
+<section id="slide-org6ab45dd">
+<h4 id="org6ab45dd">输入部分</h4>
+<ul>
+<li>ES6 let/const,解构:v0.1.71</li>
+
+</ul>
+<p>
+<a href="./Javascript高级.html">Javascript高级-ES6</a>
+</p>
+
+<ul>
+<li>JS 类 : v0.1.77,v0.1.78</li>
+
+</ul>
+<p>
+<a href="./Javascript高级.html">Javascript高级-Class</a>
+</p>
+
+<ul>
+<li>JS类静态函数： v0.1.79</li>
+
+</ul>
+<p>
+<a href="./Javascript高级.html">Javascript高级-Class</a>
+</p>
+
+</section>
+<section id="slide-orgd1aaac4">
+<h3 id="orgd1aaac4">calc 把数字计算放到 Input类中</h3>
+<ul>
+<li>MVC : v0.1.82</li>
+
+</ul>
+<p>
+<a href="./Javascript高级.html">Javascript高级-MVC</a>
+</p>
+</section>
+<section id="slide-org8c3b2d9">
+<h3 id="org8c3b2d9">为Input类添加更多测试用例: v0.1.83</h3>
+</section>
+<section id="slide-orgfbf7473">
+<h3 id="orgfbf7473">为Input类setup/teardown: v0.1.84</h3>
+</section>
+<section id="slide-org041f8a9">
+<h3 id="org041f8a9">使用bootstrap : v0.1.85</h3>
+<p>
+<a href="./CSS高级.html">CSS高级-Bootstrap</a>
+</p>
+</section>
+<section id="slide-orgeb974e6">
+<h3 id="orgeb974e6">按钮应用bootstrap : v0.1.86</h3>
+</section>
+<section id="slide-org3a78147">
+<h3 id="org3a78147">bootstrap demo 添加input readonly : v0.1.87</h3>
+</section>
+<section id="slide-org1768884">
+<h3 id="org1768884">input 显示计算公式: v0.1.88</h3>
+</section>
+<section id="slide-orge4c4377">
+<h3 id="orge4c4377">绘制button bar: v0.1.89</h3>
+</section>
+<section id="slide-org2795b10">
+<h3 id="org2795b10">用bootstrap button bar重写界面 : v0.1.90</h3>
+</section>
+<section id="slide-org0bf6da9">
+<h3 id="org0bf6da9">重构,获取按钮标题: v0.1.91</h3>
+</section>
+<section id="slide-org007d0b0">
+<h3 id="org007d0b0">给按钮添加click函数: v0.1.92</h3>
+</section>
+<section id="slide-org0d07d68">
+<h3 id="org0d07d68">重构，清除代码: v0.1.93</h3>
+</section>
+<section id="slide-orgc5fe83e">
+<h3 id="orgc5fe83e">添加另一种键盘布局: v0.1.94</h3>
+</section>
+<section id="slide-orge75a244">
+<h3 id="orge75a244">添加选择布局的下拉菜单界面: v0.1.95</h3>
+</section>
+<section id="slide-org6d61576">
+<h3 id="org6d61576">分拆出选择主题界面和键盘界面: v0.1.96</h3>
+</section>
+<section id="slide-org15d691c">
+<h3 id="org15d691c">键盘的配置分拆成layout表和callbacks表: v0.1.97</h3>
+</section>
+<section id="slide-orga6b41a4">
+<h3 id="orga6b41a4">键盘的配置layout表改成json数据: v0.1.98</h3>
+<p>
+<a href="./Javascript高级.html">Javascript高级-JSON</a>
+</p>
+</section>
+<section id="slide-orgdf99d78">
+<h3 id="orgdf99d78">加载json文件来改变键盘的配置layout表: v0.1.99</h3>
+</section>
+<section id="slide-org202530a">
+<h3 id="org202530a">把themes作为创建主题选择控件的参数: v0.1.100</h3>
+</section>
+<section id="slide-orgf3c1030">
+<h3 id="orgf3c1030">方便调试，首页缺省加载计算器，webpack添加devtool: v0.1.101</h3>
+</section>
+<section id="slide-org3559fbb">
+<h3 id="org3559fbb">使用网络接口获取layout</h3>
+<ul>
+<li>http协议
+<a href="./Javascript高级.html">Javascript高级-HTTP协议</a></li>
+<li>Ajax
+<a href="./Javascript高级.html">Javascript高级-Ajax</a></li>
+
+</ul>
+</section>
+<section id="slide-org35e25c0">
+<h3 id="org35e25c0">配置一个服务器: v1.0.102</h3>
+<div class="outline-text-3" id="text-org35e25c0">
+</div></section>
+<section id="slide-org236291f">
+<h4 id="org236291f">安装 json-server</h4>
+<div class="org-src-container">
+
+<pre  class="src src-javascript">npm install --save-dev json-server
+</pre>
+</div>
+</section>
+<section id="slide-org9762aa5">
+<h4 id="org9762aa5">配置数据库文件</h4>
+<p>
+创建文件 db.json
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-sh"><span style="color: #4f97d7;">{</span>
+  <span style="color: #2d9574;">"layouts"</span>: <span style="color: #bc6ec5;">[</span>
+    <span style="color: #2d9574;">{</span> <span style="color: #2d9574;">"id"</span>: <span style="color: #a45bad;">1,</span> <span style="color: #2d9574;">"title"</span>: <span style="color: #2d9574;">"&#20027;&#39064;1"</span> <span style="color: #2d9574;">}</span>&#65292;
+    <span style="color: #2d9574;">{</span> <span style="color: #2d9574;">"id"</span>: <span style="color: #a45bad;">2,</span> <span style="color: #2d9574;">"title"</span>: <span style="color: #2d9574;">"&#20027;&#39064;2"</span> <span style="color: #2d9574;">}</span>
+  <span style="color: #bc6ec5;">]</span>
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+</section>
+<section id="slide-orgb06e49f">
+<h4 id="orgb06e49f">在package.json添加</h4>
+<div class="org-src-container">
+
+<pre  class="src src-sh"><span style="color: #2d9574;">"scripts"</span>:<span style="color: #4f97d7;">{</span>
+  <span style="color: #2d9574;">"mocker"</span>: <span style="color: #2d9574;">"json-server --watch ./db.json --port 4000"</span>
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+</section>
+<section id="slide-orgd3cfa33">
+<h4 id="orgd3cfa33">启动</h4>
+<div class="org-src-container">
+
+<pre  class="src src-sh">npm run mock
+</pre>
+</div>
+
+</section>
+<section id="slide-org4418444">
+<h4 id="org4418444">浏览器访问localhost:4000/layouts</h4>
+</section>
+</section>
+<section>
+<section id="slide-orgc8f62bf">
+<h2 id="orgc8f62bf">单元测试 : v0.1.72</h2>
+<div class="outline-text-2" id="text-orgc8f62bf">
+</div></section>
+<section id="slide-org6a2b3de">
+<h3 id="org6a2b3de">安装</h3>
+<div class="outline-text-3" id="text-org6a2b3de">
+</div></section>
+<section id="slide-org5623761">
+<h4 id="org5623761">jest</h4>
+<div class="org-src-container">
+
+<pre  class="src src-javascript">npm install --save-dev jest
+</pre>
+</div>
+
+</section>
+<section id="slide-orga82cce8">
+<h3 id="orga82cce8">bable-test</h3>
+<div class="org-src-container">
+
+<pre  class="src src-javascript">npm install --save-dev babel-test jest
+</pre>
+</div>
+
+</section>
+<section id="slide-org95999c2">
+<h3 id="org95999c2">es6</h3>
+<div class="org-src-container">
+
+<pre  class="src src-javascript">npm install --save-dev babel-preset-env
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre  class="src src-javascript"><span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">&#28155;&#21152; .babelrc&#37197;&#32622;&#25991;&#20214;</span>
+cd ~/web-learning
+cat &lt; EOF &gt; .babelrc
+    <span style="color: #4f97d7;">{</span>
+      <span style="color: #2d9574;">"presets"</span>: <span style="color: #bc6ec5;">[</span><span style="color: #2d9574;">"es2015"</span><span style="color: #bc6ec5;">]</span>
+    <span style="color: #4f97d7;">}</span>
+    EOF
+</pre>
+</div>
+
+</section>
+<section id="slide-org1cb2a6d">
+<h3 id="org1cb2a6d">Setup/Teardown : v0.1.84</h3>
+<div class="outline-text-3" id="text-org1cb2a6d">
+</div></section>
+<section id="slide-org918913f">
+<h4 id="org918913f">Setup</h4>
+<p>
+每个测试用例运行前都有执行的初始化函数
+</p>
+</section>
+<section id="slide-org565eb85">
+<h4 id="org565eb85">Teardow</h4>
+<p>
+每个测试用例运行完成后都有执行的函数
+</p>
+</section>
+</section>
+</div>
+</div>
+<p> Created by wuwei. </p>
+<script src="./reveal.js/lib/js/head.min.js"></script>
+<script src="./reveal.js/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: true,
+keyboard: true,
+overview: true,
+width: 1200,
+height: 800,
+margin: 0.10,
+minScale: 0.50,
+maxScale: 2.50,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'cube', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: './reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>

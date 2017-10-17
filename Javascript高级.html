@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>JS高级</title>
+<meta name="author" content="(wei wu)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/css/theme/moon.css" id="theme"/>
+
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<meta name="description" content="JS高级">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">JS高级</h1><h2 class="author">wei wu</h2><p class="date">Created: 2017-10-13 Fri 15:44</p>
+</section>
+<section id="table-of-contents">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#/slide-org51d0e30">闭包 closure : v0.1.50</a></li>
+<li><a href="#/slide-org110cc80">ES6</a></li>
+<li><a href="#/slide-org35beffd">JSON : v0.1.98</a></li>
+<li><a href="#/slide-org4e4ace1">MVC : v0.1.82</a></li>
+<li><a href="#/slide-orgd30fc19">HTTP协议</a></li>
+<li><a href="#/slide-orgade11a4">Ajax</a></li>
+</ul>
+</div>
+</div>
+</section>
+<section>
+<section id="slide-org51d0e30">
+<h2 id="org51d0e30">闭包 closure : v0.1.50</h2>
+<div class="outline-text-2" id="text-org51d0e30">
+</div></section>
+<section id="slide-orgdb96e5f">
+<h3 id="orgdb96e5f">概念</h3>
+<div class="org-src-container">
+
+<pre  class="src src-javascript"><span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">init</span><span style="color: #4f97d7;">(){</span>
+  <span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">name</span> = <span style="color: #2d9574;">"hello"</span>;
+  <span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">showName</span><span style="color: #bc6ec5;">(){</span>
+    alert<span style="color: #2d9574;">(</span>name<span style="color: #2d9574;">)</span>;
+  <span style="color: #bc6ec5;">}</span>
+  showName<span style="color: #bc6ec5;">()</span>;
+<span style="color: #4f97d7;">}</span>
+init<span style="color: #4f97d7;">()</span>;
+</pre>
+</div>
+
+</section>
+<section id="slide-orgaee595a">
+<h3 id="orgaee595a">应用举例</h3>
+<div class="org-src-container">
+
+<pre  class="src src-js"><span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">greetSomebody</span><span style="color: #4f97d7;">(</span><span style="color: #7590db;">greet</span><span style="color: #4f97d7;">){</span>
+  <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5;">(</span><span style="color: #7590db;">name</span><span style="color: #bc6ec5;">){</span>
+    alert<span style="color: #2d9574;">(</span>greet+<span style="color: #2d9574;">" "</span>+name+<span style="color: #2d9574;">"!"</span><span style="color: #2d9574;">)</span>;
+  <span style="color: #bc6ec5;">}</span>;
+<span style="color: #4f97d7;">}</span>
+<span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">sayHello</span> = greetSomebody<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">"hello"</span><span style="color: #4f97d7;">)</span>;
+sayHello<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">"mike"</span><span style="color: #4f97d7;">)</span>;
+
+<span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">sayHowAreYou</span> = greetSomebody<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">"how are you"</span><span style="color: #4f97d7;">)</span>;
+sayHowAreYou<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">"mike"</span><span style="color: #4f97d7;">)</span>;
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org110cc80">
+<h2 id="org110cc80">ES6</h2>
+<div class="outline-text-2" id="text-org110cc80">
+</div></section>
+<section id="slide-org2ca69ec">
+<h3 id="org2ca69ec">let/const : v0.1.71</h3>
+<ul>
+<li>var 作用域</li>
+
+</ul>
+<div class="org-src-container">
+
+<pre  class="src src-sh"><span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">l1</span><span style="color: #4f97d7;">(){</span>
+    var i = <span style="color: #2d9574;">"l1"</span>;
+    <span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">l2</span><span style="color: #bc6ec5;">(){</span>
+        console.log<span style="color: #2d9574;">(</span><span style="color: #2d9574;">"i=="</span>+i<span style="color: #2d9574;">)</span>;
+        <span style="color: #4f97d7; font-weight: bold;">if</span><span style="color: #2d9574;">(</span><span style="color: #a45bad;">1</span><span style="color: #2d9574;">){</span>
+            var i = <span style="color: #2d9574;">"l2"</span>;
+            console.log<span style="color: #67b11d;">(</span><span style="color: #2d9574;">"i=="</span>+i<span style="color: #67b11d;">)</span>;   
+        <span style="color: #2d9574;">}</span>
+    <span style="color: #bc6ec5;">}</span>
+    l2<span style="color: #bc6ec5;">()</span>;
+<span style="color: #4f97d7;">}</span>
+<span style="color: #bc6ec5; font-weight: bold;">l1</span><span style="color: #4f97d7;">()</span>;
+
+//&#36755;&#20986;
+<span style="color: #7590db;">i</span>==undefined
+<span style="color: #7590db;">i</span>==l2
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre  class="src src-sh">var number = <span style="color: #4f97d7;">[</span><span style="color: #a45bad;">1,2,3,4</span><span style="color: #4f97d7;">]</span>;
+var funcs = <span style="color: #4f97d7;">[]</span>;
+<span style="color: #4f97d7; font-weight: bold;">for</span><span style="color: #4f97d7;">(</span>var <span style="color: #7590db;">i</span>=<span style="color: #a45bad;">0</span>;i&lt;number.length;i++<span style="color: #4f97d7;">){</span>
+    funcs.push<span style="color: #bc6ec5;">(</span><span style="color: #4f97d7; font-weight: bold;">function</span><span style="color: #2d9574;">(){</span>
+        console.log<span style="color: #67b11d;">(</span>number<span style="color: #b1951d;">[</span>i<span style="color: #b1951d;">]</span><span style="color: #67b11d;">)</span>;
+    <span style="color: #2d9574;">}</span><span style="color: #bc6ec5;">)</span>;
+<span style="color: #4f97d7;">}</span>
+funcs<span style="color: #4f97d7;">[</span><span style="color: #a45bad;">0</span><span style="color: #4f97d7;">]()</span>;
+//&#36755;&#20986;
+undefined
+</pre>
+</div>
+
+</section>
+<section id="slide-org7c7a4ae">
+<h3 id="org7c7a4ae">解构 destructuring : v0.1.71</h3>
+<ul>
+<li>数组解构</li>
+
+</ul>
+<p>
+#+BEGIN_SRC: js
+  var first = someArray[0];
+  var second = someArray[1];
+  var third = someArray[3];
+  //解构
+  var [ first,second,third ] = someArray;
+</p>
+
+<p>
+#+END_SRC
+</p>
+
+<ul>
+<li>对象</li>
+
+</ul>
+<p>
+#+BEGIN_SRC: js
+  var { foo, bar } = { foo: "lorem", bar: "ipsum" };
+  console.log(foo); //显示 "lorem"
+  console.log(bar); //显示 "ipsum"
+#+END_SRC
+</p>
+
+</section>
+<section id="slide-org44ef101">
+<h3 id="org44ef101">import module : v0.1.70</h3>
+<div class="org-src-container">
+
+<pre  class="src src-js"><span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">&#40664;&#35748;&#23548;&#20986;&#20989;&#25968;</span>
+<span style="color: #4f97d7; font-weight: bold;">export</span> <span style="color: #4f97d7; font-weight: bold;">default</span> <span style="color: #4f97d7; font-weight: bold;">function</span><span style="color: #4f97d7;">(){</span> ... <span style="color: #4f97d7;">}</span>
+<span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">&#40664;&#35748;&#23548;&#20986;class</span>
+<span style="color: #4f97d7; font-weight: bold;">export</span> <span style="color: #4f97d7; font-weight: bold;">default</span> <span style="color: #4f97d7; font-weight: bold;">class</span><span style="color: #4f97d7;">(){</span> ... <span style="color: #4f97d7;">}</span>
+<span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">&#21629;&#21517;&#23548;&#20986;&#19968;&#20010;&#19968;&#23450;&#20041;&#30340;&#20989;&#25968;</span>
+<span style="color: #4f97d7; font-weight: bold;">export</span> <span style="color: #4f97d7;">{</span> someFunction <span style="color: #4f97d7;">}</span>
+<span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">&#21629;&#21517;&#23548;&#20986;&#19968;&#20010;&#24120;&#25968;</span>
+<span style="color: #4f97d7; font-weight: bold;">export</span> <span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #7590db;">foo</span> = <span style="color: #a45bad;">2</span>;
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre  class="src src-js"><span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">&#23548;&#20837;&#40664;&#35748;&#20540;</span>
+<span style="color: #4f97d7; font-weight: bold;">import</span> defaultMember from <span style="color: #2d9574;">'module-name'</span>&#65307;
+<span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">&#23548;&#20837;&#27169;&#22359;&#37324;&#25152;&#26377;&#23548;&#20986;&#20540;</span>
+<span style="color: #4f97d7; font-weight: bold;">import</span> * as name from <span style="color: #2d9574;">'module-name'</span>;
+<span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">&#23548;&#20837;&#27169;&#22359;&#37324;&#26576;&#19968;&#20010;&#23548;&#20986;&#20540;</span>
+<span style="color: #4f97d7; font-weight: bold;">import</span> <span style="color: #4f97d7;">{</span> member <span style="color: #4f97d7;">}</span> from <span style="color: #2d9574;">'module-name'</span>;
+<span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">&#23548;&#20837;&#27169;&#22359;&#37324;&#26576;&#19968;&#20010;&#23548;&#20986;&#20540;&#65292;&#24182;&#37325;&#21629;&#21517;</span>
+<span style="color: #4f97d7; font-weight: bold;">import</span> <span style="color: #4f97d7;">{</span> member as alias<span style="color: #4f97d7;">}</span> from <span style="color: #2d9574;">'module-name'</span>;
+</pre>
+</div>
+
+</section>
+<section id="slide-org95269de">
+<h3 id="org95269de">Class : v0.1.78</h3>
+<div class="outline-text-3" id="text-org95269de">
+</div><ul class="org-ul"><li><a id="orge4bc477"></a>JS 写法<br /><div class="org-src-container">
+
+<pre  class="src src-js"><span style="color: #4f97d7; font-weight: bold;">class</span> Rectangle<span style="color: #4f97d7;">{</span>
+  constructor<span style="color: #bc6ec5;">(</span>height,width<span style="color: #bc6ec5;">){</span>
+     <span style="color: #a45bad;">this</span>.height = height;
+     <span style="color: #a45bad;">this</span>.width = width;
+  <span style="color: #bc6ec5;">}</span>
+  size<span style="color: #bc6ec5;">(){</span>
+    <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #a45bad;">this</span>.height * <span style="color: #a45bad;">this</span>.width;
+  <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>
+<span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #7590db;">rect1</span> = <span style="color: #4f97d7; font-weight: bold;">new</span> <span style="color: #ce537a; font-weight: bold;">Rectangle</span><span style="color: #4f97d7;">(</span><span style="color: #a45bad;">10</span>,<span style="color: #a45bad;">200</span><span style="color: #4f97d7;">)</span>;
+console.log<span style="color: #4f97d7;">(</span>rect1.size<span style="color: #bc6ec5;">()</span><span style="color: #4f97d7;">)</span>;
+<span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">2000</span>
+</pre>
+</div></li>
+
+<li><a id="org9e80261"></a>继承 extends<br /><div class="org-src-container">
+
+<pre  class="src src-js">  <span style="color: #4f97d7; font-weight: bold;">class</span> Square <span style="color: #4f97d7; font-weight: bold;">extends</span> Rectangle<span style="color: #4f97d7;">{</span>
+    constructor<span style="color: #bc6ec5;">(</span>side<span style="color: #bc6ec5;">){</span>
+      <span style="color: #4f97d7; font-weight: bold;">super</span><span style="color: #2d9574;">(</span>side,side<span style="color: #2d9574;">)</span>
+    <span style="color: #bc6ec5;">}</span>
+  <span style="color: #4f97d7;">}</span>
+  <span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #7590db;">square</span> = <span style="color: #4f97d7; font-weight: bold;">new</span> <span style="color: #ce537a; font-weight: bold;">Square</span><span style="color: #4f97d7;">(</span><span style="color: #a45bad;">10</span><span style="color: #4f97d7;">)</span>;
+  console.log<span style="color: #4f97d7;">(</span>square.size<span style="color: #bc6ec5;">()</span><span style="color: #4f97d7;">)</span>;
+<span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">100</span>
+</pre>
+</div></li>
+<li><a id="org3872c53"></a>静态属性: v0.1.79<br /></li></ul>
+</section>
+</section>
+<section>
+<section id="slide-org35beffd">
+<h2 id="org35beffd">JSON : v0.1.98</h2>
+<div class="outline-text-2" id="text-org35beffd">
+</div></section>
+<section id="slide-org8cc1254">
+<h3 id="org8cc1254">JSON?</h3>
+<p>
+一种表示数据结构的数据格式
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-js"><span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">simple</span>
+<span style="color: #4f97d7;">{</span>
+  <span style="color: #2d9574;">"a"</span>: <span style="color: #a45bad;">1</span>,
+  <span style="color: #2d9574;">"b"</span>: <span style="color: #2d9574;">"b"</span>
+<span style="color: #4f97d7;">}</span>,
+<span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">array</span>
+<span style="color: #4f97d7;">{</span>
+  <span style="color: #2d9574;">"items"</span>:<span style="color: #bc6ec5;">[</span>
+    <span style="color: #2d9574;">{</span>
+      <span style="color: #2d9574;">"id"</span>: <span style="color: #a45bad;">1</span>,
+      <span style="color: #2d9574;">"name"</span>: <span style="color: #2d9574;">"jack"</span> 
+    <span style="color: #2d9574;">}</span>,
+    <span style="color: #2d9574;">{</span>
+      <span style="color: #2d9574;">"id"</span>: <span style="color: #a45bad;">2</span>,
+      <span style="color: #2d9574;">"name"</span>: <span style="color: #2d9574;">"bob"</span> 
+    <span style="color: #2d9574;">}</span>
+  <span style="color: #bc6ec5;">]</span>
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+</section>
+<section id="slide-orgbea583e">
+<h3 id="orgbea583e">使用</h3>
+</section>
+</section>
+<section>
+<section id="slide-org4e4ace1">
+<h2 id="org4e4ace1">MVC : v0.1.82</h2>
+<p>
+用 MVC（Model View Controller 模型-视图-控制器）设计创建 Web 应用程序的模式
+</p>
+
+<ul>
+<li>Model（模型）</li>
+
+</ul>
+<pre  class="example">
+   表示应用程序处理数据逻辑的部分（比如数据库记录列表，网络请求获取数据）。
+</pre>
+<ul>
+<li>View（视图）</li>
+
+</ul>
+<pre  class="example">
+   显示数据的界面。
+</pre>
+<ul>
+<li>Controller（控制器）</li>
+
+</ul>
+<pre  class="example">
+   处理用户交互的模块，连接Modal和View。
+</pre>
+
+</section>
+</section>
+<section>
+<section id="slide-orgd30fc19">
+<h2 id="orgd30fc19">HTTP协议</h2>
+<div class="outline-text-2" id="text-orgd30fc19">
+</div></section>
+<section id="slide-orgb0c4889">
+<h3 id="orgb0c4889">定义</h3>
+<p>
+<a href="http://host">http://host</a>[":"port][abs_path]
+</p>
+
+<pre  class="example">
+http://localhost:3000/api
+http://www.abc.com/api
+</pre>
+
+</section>
+<section id="slide-org7bd85e7">
+<h3 id="org7bd85e7">method</h3>
+<ul>
+<li>GET    获取资源</li>
+<li>POST   创建资源</li>
+<li>PUT    修改资源的所有内容</li>
+<li>DELTE  删除资源</li>
+
+</ul>
+</section>
+<section id="slide-orgf5a20a1">
+<h3 id="orgf5a20a1">消息(message)</h3>
+<div class="outline-text-3" id="text-orgf5a20a1">
+</div></section>
+<section id="slide-org074481f">
+<h4 id="org074481f">例子</h4>
+<div class="org-src-container">
+
+<pre  class="src src-sh"> GET https://api.github.com/applications/grants
+
+&gt; GET /applications/grants HTTP/1.1
+&gt; Host: api.github.com
+&gt; User-Agent: curl/7.52.1
+&gt; Accept: */*
+&gt; 
+&lt; HTTP/1.1 <span style="color: #a45bad;">401</span> Unauthorized
+&lt; Date: Wed, <span style="color: #a45bad;">11</span> Oct <span style="color: #a45bad;">2017</span> <span style="color: #a45bad;">09:00:38</span> GMT
+&lt; Content-Type: application/json; <span style="color: #7590db;">charset</span>=utf-8
+&lt; Content-Length: <span style="color: #a45bad;">101</span>
+&lt; Server: GitHub.com
+&lt; Status: <span style="color: #a45bad;">401</span> Unauthorized
+&lt; X-RateLimit-Limit: <span style="color: #a45bad;">60</span>
+...
+&lt; Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+&lt; Access-Control-Allow-Origin: *
+&lt; Content-Security-Policy: default-src <span style="color: #2d9574;">'none'</span>
+&lt; Strict-Transport-Security: max-age=<span style="color: #a45bad;">31536000</span>; includeSubdomains; preload
+...
+&lt; 
+<span style="color: #4f97d7;">{</span>
+  <span style="color: #2d9574;">"message"</span>: <span style="color: #2d9574;">"Requires authentication"</span>,
+  <span style="color: #2d9574;">"documentation_url"</span>: <span style="color: #2d9574;">"https://developer.github.com/v3"</span>
+<span style="color: #4f97d7;">}</span>
+
+</pre>
+</div>
+</section>
+<section id="slide-org9da55a2">
+<h4 id="org9da55a2">Request(请求）</h4>
+<ul>
+<li>请求行</li>
+
+</ul>
+<pre  class="example">
+GET /applications/grants HTTP/1.1
+</pre>
+<ul>
+<li>header</li>
+
+</ul>
+<pre  class="example">
+Host: api.github.com
+User-Agent: curl/7.52.1
+Accept: */*
+</pre>
+<ul>
+<li>body</li>
+
+</ul>
+<pre  class="example">
+POST，PUT用来上传数据  
+</pre>
+
+</section>
+<section id="slide-org4206c1d">
+<h4 id="org4206c1d">Response(响应)</h4>
+<ul>
+<li>状态</li>
+
+</ul>
+<pre  class="example">
+HTTP/1.1 401 Unauthorized
+401           状态码 http://tool.oschina.net/commons?type=5
+Unauthorized  错误信息
+</pre>
+<ul>
+<li>header</li>
+
+</ul>
+<pre  class="example">
+&lt; Date: Wed, 11 Oct 2017 09:00:38 GMT
+&lt; Content-Type: application/json; charset=utf-8
+&lt; Content-Length: 101
+&lt; Server: GitHub.com
+...
+</pre>
+<ul>
+<li>message body</li>
+
+</ul>
+
+<pre  class="example">
+{
+  "message": "Requires authentication",
+  "documentation_url": "https://developer.github.com/v3"
+}
+</pre>
+
+</section>
+</section>
+<section>
+<section id="slide-orgade11a4">
+<h2 id="orgade11a4">Ajax</h2>
+<div class="outline-text-2" id="text-orgade11a4">
+</div></section>
+<section id="slide-org1a6170e">
+<h3 id="org1a6170e">定义</h3>
+<p>
+Asynchronous JavaScript And XML
+</p>
+
+<ul>
+<li>用XMLHttpRequest和服务器通讯</li>
+<li>发送和接受的数据格式：JSON／XML/HTML／纯文本</li>
+
+</ul>
+</section>
+<section id="slide-org8cb1179">
+<h3 id="org8cb1179">例子</h3>
+<div class="org-src-container">
+
+<pre  class="src src-javascript"><span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">httpRequest</span> = <span style="color: #4f97d7; font-weight: bold;">new</span> <span style="color: #ce537a; font-weight: bold;">XMLHttpRequest</span><span style="color: #4f97d7;">()</span>;
+httpRequest.onreadystatechange = responseHandler;
+<span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #7590db;">url</span> = <span style="color: #2d9574;">'layouts'</span>
+httpRequest.open<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'GET'</span>,url<span style="color: #4f97d7;">)</span>;
+httpRequest.send<span style="color: #4f97d7;">()</span>;
+
+<span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">responseHandler</span><span style="color: #4f97d7;">(){</span>
+   <span style="color: #4f97d7; font-weight: bold;">if</span><span style="color: #bc6ec5;">(</span>httpRequest.readyState === XMLHttpRequest.DONE<span style="color: #bc6ec5;">){</span>
+       <span style="color: #4f97d7; font-weight: bold;">if</span><span style="color: #2d9574;">(</span>httpRequest.status === <span style="color: #a45bad;">200</span><span style="color: #2d9574;">){</span>
+          alert<span style="color: #67b11d;">(</span>httpRequest.responseText<span style="color: #67b11d;">)</span>;
+       <span style="color: #2d9574;">}</span><span style="color: #4f97d7; font-weight: bold;">else</span><span style="color: #2d9574;">{</span>
+          alert<span style="color: #67b11d;">(</span><span style="color: #2d9574;">"some error"</span><span style="color: #67b11d;">)</span>;
+       <span style="color: #2d9574;">}</span>
+   <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span> 
+</pre>
+</div>
+</section>
+</section>
+</div>
+</div>
+<p> Created by wuwei. </p>
+<script src="./reveal.js/lib/js/head.min.js"></script>
+<script src="./reveal.js/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: true,
+keyboard: true,
+overview: true,
+width: 1200,
+height: 800,
+margin: 0.10,
+minScale: 0.50,
+maxScale: 2.50,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'cube', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: './reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>

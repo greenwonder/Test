@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>JS基础</title>
+<meta name="author" content="(wei wu)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/css/theme/moon.css" id="theme"/>
+
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<meta name="description" content="JS基础">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">JS基础</h1><h2 class="author">wei wu</h2><p class="date">Created: 2017-09-22 Fri 13:31</p>
+</section>
+<section id="table-of-contents">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#/slide-orgfc8cecf">JavaScript?</a></li>
+<li><a href="#/slide-org735dfdf">Hello : v0.1.16</a></li>
+<li><a href="#/slide-org0d5229e">变量</a></li>
+<li><a href="#/slide-org690eb6f">注释</a></li>
+<li><a href="#/slide-orgb923802">运算符</a></li>
+<li><a href="#/slide-orgeef405a">函数</a></li>
+<li><a href="#/slide-org71de15e">事件</a></li>
+<li><a href="#/slide-org84c6a91">实现一个计算器</a></li>
+</ul>
+</div>
+</div>
+</section>
+
+<section>
+<section id="slide-orgfc8cecf">
+<h2 id="orgfc8cecf">JavaScript?</h2>
+<p>
+为网页添加交互性
+</p>
+
+</section>
+<section id="slide-org58e218c">
+<h3 id="org58e218c">功能</h3>
+<ul>
+<li>轮播，相册，浮动布局</li>
+<li>按钮点击事件</li>
+<li>2d,3d动画</li>
+<li>数据库应用</li>
+
+</ul>
+
+</section>
+<section id="slide-org9286d01">
+<h3 id="org9286d01">工具扩展</h3>
+<p>
+javascript的工具包扩展功能
+</p>
+
+</section>
+<section id="slide-org8c11539">
+<h4 id="org8c11539">浏览器应用编程接口(api)</h4>
+<ul>
+<li>动态编写html和css</li>
+<li>抓取控制用户摄像头的数据流</li>
+<li>操作3d图像和音频样品</li>
+
+</ul>
+</section>
+<section id="slide-orge14f7d3">
+<h4 id="orge14f7d3">第三方APIs集成</h4>
+<ul>
+<li>地图</li>
+
+</ul>
+</section>
+<section id="slide-org7f7c9f4">
+<h4 id="org7f7c9f4">应用第三方框架和库到HTML</h4>
+</section>
+</section>
+<section>
+<section id="slide-org735dfdf">
+<h2 id="org735dfdf">Hello : v0.1.16</h2>
+<div class="outline-text-2" id="text-org735dfdf">
+</div></section>
+<section id="slide-orgd4aefeb">
+<h3 id="orgd4aefeb">创建 js文件</h3>
+</section>
+<section id="slide-org1c57969">
+<h3 id="org1c57969">引入 html</h3>
+<ul>
+<li>加载的位置</li>
+
+</ul>
+
+<div class="org-src-container">
+
+<pre  class="src src-html">&lt;<span style="color: #bc6ec5; font-weight: bold;">body</span>&gt;&#30340;&#26368;&#21518;
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org0d5229e">
+<h2 id="org0d5229e">变量</h2>
+<div class="outline-text-2" id="text-org0d5229e">
+</div></section>
+<section id="slide-org8038b17">
+<h3 id="org8038b17">定义变量</h3>
+<div class="org-src-container">
+
+<pre  class="src src-js"><span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">myVariable</span> = <span style="color: #2d9574;">'hello'</span>;
+</pre>
+</div>
+
+</section>
+<section id="slide-org381559c">
+<h3 id="org381559c">数据类型</h3>
+<div class="outline-text-3" id="text-org381559c">
+</div></section>
+<section id="slide-orga535850">
+<h4 id="orga535850">String</h4>
+<ul>
+<li>例</li>
+
+</ul>
+
+<div class="org-src-container">
+
+<pre  class="src src-js"><span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">strVariable</span> = <span style="color: #2d9574;">'Hello'</span>;
+</pre>
+</div>
+
+<p>
+-单引号和双引号:
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-js">   &#20363;&#65306; &lt;a href=<span style="color: #2d9574;">"#"</span> onclick=<span style="color: #2d9574;">"alert('Clicked!');"</span>&gt;Click Me!&lt;/a&gt;
+   &#21442;&#32771;: https:<span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">stackoverflow.com/questions/2373074/single-vs-double-quotes-vs</span>
+</pre>
+</div>
+
+</section>
+<section id="slide-orgde57ee3">
+<h4 id="orgde57ee3">Number</h4>
+<div class="org-src-container">
+
+<pre  class="src src-js"><span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">intVariable</span> = <span style="color: #a45bad;">10</span>;
+<span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">doubleVariable</span> = <span style="color: #a45bad;">10</span>.<span style="color: #a45bad;">1</span>;
+</pre>
+</div>
+
+</section>
+<section id="slide-orgc71d5be">
+<h4 id="orgc71d5be">Boolean</h4>
+<ul>
+<li>例</li>
+
+</ul>
+
+<div class="org-src-container">
+
+<pre  class="src src-js"><span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">booleanVar</span> = <span style="color: #a45bad;">true</span>;
+<span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">anotherBooleanVar</span> = <span style="color: #a45bad;">false</span>;
+</pre>
+</div>
+
+<ul>
+<li>False 值</li>
+
+</ul>
+
+<div class="org-src-container">
+
+<pre  class="src src-html">false
+undefined
+null
+0
+NaN
+""   
+</pre>
+</div>
+
+
+</section>
+<section id="slide-orgc7ccee9">
+<h4 id="orgc7ccee9">Array</h4>
+<div class="org-src-container">
+
+<pre  class="src src-js"><span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">arrayVar</span> = <span style="color: #4f97d7;">[</span><span style="color: #a45bad;">1</span>,<span style="color: #2d9574;">'H'</span>,<span style="color: #2d9574;">'ello'</span>,<span style="color: #a45bad;">2</span><span style="color: #4f97d7;">]</span>;
+&#35775;&#38382;: arrayVar<span style="color: #4f97d7;">[</span><span style="color: #a45bad;">0</span><span style="color: #4f97d7;">]</span>
+&#25968;&#32452;&#37324;&#30340;&#20803;&#32032;&#31867;&#22411;&#19981;&#24517;&#30456;&#21516;
+</pre>
+</div>
+
+</section>
+<section id="slide-orga29a97e">
+<h4 id="orga29a97e">Object</h4>
+<p>
+任何东西都是对象，函数也是
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-js"><span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">objVar</span> = document.querySelector<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'h1'</span><span style="color: #4f97d7;">)</span>;
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org690eb6f">
+<h2 id="org690eb6f">注释</h2>
+<div class="org-src-container">
+
+<pre  class="src src-js">&#65295;*
+   &#22810;&#34892;&#27880;&#37322;
+ *&#65295;
+<span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">&#21333;&#34892;&#27880;&#37322;</span>
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orgb923802">
+<h2 id="orgb923802">运算符</h2>
+<div class="outline-text-2" id="text-orgb923802">
+</div></section>
+<section id="slide-org4bf3e10">
+<h3 id="org4bf3e10">加/连接</h3>
+<p>
+相加数字，或连接字符串
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-js"><span style="color: #a45bad;">1</span>+<span style="color: #a45bad;">2</span>;
+<span style="color: #2d9574;">"Hello"</span>+<span style="color: #2d9574;">"!!!"</span>;
+</pre>
+</div>
+
+</section>
+<section id="slide-org6cd88f8">
+<h4 id="org6cd88f8">减，乘，除</h4>
+<div class="org-src-container">
+
+<pre  class="src src-js"><span style="color: #a45bad;">9</span>-<span style="color: #a45bad;">3</span>;
+<span style="color: #a45bad;">8</span>*<span style="color: #a45bad;">2</span>;
+<span style="color: #a45bad;">12</span>/<span style="color: #a45bad;">4</span>;
+</pre>
+</div>
+
+</section>
+<section id="slide-org6964bbd">
+<h4 id="org6964bbd">赋值</h4>
+<p>
+给变量赋值
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-js"><span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">myVar</span> = &#8217;Hello<span style="color: #2d9574;">';</span>
+</pre>
+</div>
+
+</section>
+<section id="slide-org25dbdf5">
+<h4 id="org25dbdf5">相等</h4>
+<ul>
+<li>比较数字</li>
+
+</ul>
+
+<div class="org-src-container">
+
+<pre  class="src src-js"><span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">intVar1</span> = <span style="color: #a45bad;">3&#65307;</span>
+intVar1 === <span style="color: #a45bad;">4</span>;  &#65295;/<span style="color: #a45bad;">false</span>
+intVar1 === <span style="color: #a45bad;">3</span>;  <span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">true</span>
+intVar1 !== <span style="color: #a45bad;">4</span>;  <span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">true</span>
+</pre>
+</div>
+
+<ul>
+<li>比较字符串</li>
+
+</ul>
+<div class="org-src-container">
+
+<pre  class="src src-js"><span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">stringVar1</span> = <span style="color: #2d9574;">'hello'</span>&#65307;
+stringVar1 === <span style="color: #2d9574;">'hello'</span>; <span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">true</span>
+stringVar1 === <span style="color: #2d9574;">'he'</span>; <span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">false</span>
+stringVar1 !== <span style="color: #2d9574;">'hello'</span>; <span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">false</span>
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orgeef405a">
+<h2 id="orgeef405a">函数</h2>
+<ul>
+<li>内置函数</li>
+
+</ul>
+
+<div class="org-src-container">
+
+<pre  class="src src-js">alert<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'hello'</span><span style="color: #4f97d7;">)</span>
+document.querySelector<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'someSelector'</span><span style="color: #4f97d7;">)</span>;
+</pre>
+</div>
+
+<p>
+<a href="https://developer.mozilla.org/en-US/docs/Web/API">web API文档</a>
+</p>
+
+<ul>
+<li>自定义函数</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org71de15e">
+<h2 id="org71de15e">事件</h2>
+<p>
+网页交互
+</p>
+</section>
+<section id="slide-orgc1aed48">
+<h3 id="orgc1aed48">点击事件: v0.1.19</h3>
+<div class="org-src-container">
+
+<pre  class="src src-js">document.querySelector<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'html'</span><span style="color: #4f97d7;">)</span>.onclick = <span style="color: #4f97d7; font-weight: bold;">function</span><span style="color: #4f97d7;">()</span> <span style="color: #4f97d7;">{</span>
+    alert<span style="color: #bc6ec5;">(</span><span style="color: #2d9574;">'Hello Event!'</span><span style="color: #bc6ec5;">)</span>;
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+
+</section>
+<section id="slide-org2b9c43a">
+<h3 id="org2b9c43a">回调函数(callback)</h3>
+<p>
+保存下来，以后使用
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org84c6a91">
+<h2 id="org84c6a91">实现一个计算器</h2>
+<div class="outline-text-2" id="text-org84c6a91">
+</div></section>
+<section id="slide-org3ea0a81">
+<h3 id="org3ea0a81">How to debug</h3>
+</section>
+<section id="slide-orge8d82fc">
+<h3 id="orge8d82fc">点击按钮，显示数字 : v0.1.20</h3>
+</section>
+<section id="slide-org9cbc9f9">
+<h3 id="org9cbc9f9">添加另一个数字按钮 : v0.1.21</h3>
+</section>
+<section id="slide-org7afbe5c">
+<h3 id="org7afbe5c">简单的乘法器 : v0.1.22</h3>
+</section>
+<section id="slide-orgdf955b5">
+<h3 id="orgdf955b5">整理代码: v0.1.23</h3>
+</section>
+<section id="slide-orgc082108">
+<h3 id="orgc082108">添加一个清除按钮: v0.1.24</h3>
+</section>
+<section id="slide-org3452bb4">
+<h3 id="org3452bb4">遍历添加按钮: v0.1.25</h3>
+</section>
+<section id="slide-orgb3b481f">
+<h3 id="orgb3b481f">添加 按钮"3" : v0.1.26</h3>
+</section>
+<section id="slide-orgfaa8d59">
+<h3 id="orgfaa8d59">添加 按钮"4" : v0.1.27</h3>
+</section>
+<section id="slide-orgc985b6a">
+<h3 id="orgc985b6a">用函数添加所有数字按钮: v0.1.28</h3>
+</section>
+<section id="slide-org57cdc19">
+<h3 id="org57cdc19">Map  : v0.1.29</h3>
+<p>
+使用 map 重构创建 buttons
+</p>
+</section>
+<section id="slide-org6458803">
+<h3 id="org6458803">添加更多的数字按钮: v0.1.30</h3>
+</section>
+<section id="slide-orge89f5ee">
+<h3 id="orge89f5ee">初步美化布局: v0.1.31</h3>
+</section>
+<section id="slide-orga5fd194">
+<h3 id="orga5fd194">数字按钮分两行: v0.1.32</h3>
+</section>
+<section id="slide-org5c30aef">
+<h3 id="org5c30aef">js 创建“=”和“清除”按钮: v0.1.33</h3>
+</section>
+<section id="slide-org6d30e5a">
+<h3 id="org6d30e5a">合并create_button和create_function_button: v0.1.34</h3>
+<p>
+函数参数默认值
+</p>
+</section>
+</section>
+</div>
+</div>
+<p> Created by wuwei. </p>
+<script src="./reveal.js/lib/js/head.min.js"></script>
+<script src="./reveal.js/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: true,
+keyboard: true,
+overview: true,
+width: 1200,
+height: 800,
+margin: 0.10,
+minScale: 0.50,
+maxScale: 2.50,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'cube', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: './reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>
